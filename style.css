@@ -82,20 +82,21 @@ html {
 		max-width: 100%;
 	}
 	
-	aside {
-		padding-left: 25px;
-		padding-right: 15px;
+	.mainnav {
+		width: 60%; 
+		margin-left: auto;
+		margin-right: auto;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		padding-left: 35px;
+		padding-right: 35px;
 		text-align: left;
-		position: sticky;
-		overflow-y: auto;
-		height: 100vh;
-		top: 0;
-		left: 0;
 		background-color: var(--col-primary);
-		border-right: 7px solid transparent;
+		border: 7px solid transparent;
 		border-image-source: url('images/border.webp');
 		border-image-slice: 20;
 		border-image-outset: 3px;
+		opacity: 1;
 	}
 	
 	.pfp {
@@ -124,7 +125,7 @@ html {
 		html {font-size: 100%;}
 		.layout {display: block;}
 		
-		aside {
+		.mainnav {
 			position: relative; 
 			height: auto; 
 			width: 90%; 
@@ -337,7 +338,13 @@ footer {padding-bottom: 15px;}
 
 /* MAIN */
 
-.longread, .art-grid, .artwork-nav, .portfolio-single, .skip, .skip-i, summary {
+.longread {
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+}
+
+.art-grid, .artwork-nav, .portfolio-single, .skip, .skip-i, summary {
 	margin-left: auto;
 	margin-right: auto;
 	width: 90%;
@@ -352,8 +359,9 @@ footer {padding-bottom: 15px;}
 .artwork-nav, .longread {margin-top: 25px;}
 
 	@media only screen and (max-width: 768px) {
-		.longread, .art-grid, .artwork-nav, .guestbook-form, .inputarea, .submit, .guestbook-messages, aside {font-size: 1.3rem;}
+		.longread, .art-grid, .artwork-nav, .guestbook-form, .inputarea, .submit, .guestbook-messages, .mainnav {font-size: 1.3rem;}
 		.wip-about {margin: 15px;}
+		.longread {width: 90%;}
 	}
 		
 		
@@ -623,7 +631,7 @@ footer {padding-bottom: 15px;}
 		margin: 3px;
 	}
 	
-	.submit, .guestbook-messages, aside {
+	.submit, .guestbook-messages, .mainnav {
 		color: var(--col-text-light);
 		background-color: var(--col-secondary);
 		font-family: var(--font-body);
@@ -677,7 +685,7 @@ a {
 	text-decoration-style: dotted;
 }
 	a:hover {color: var(--col-text-a); text-shadow: 0 0 8px #FFC38E}
-	.skip a, header a, aside a, .passions a, .ring a, .controls a, h1 a, h2 a, h3 a {text-decoration: none;}
+	.skip a, header a, .mainnav a, .passions a, .ring a, .controls a, h1 a, h2 a, h3 a {text-decoration: none;}
 
 	.self-link {
 		color: var(--col-text-date);
@@ -689,7 +697,7 @@ a {
 
 ::selection {background: var(--col-text-select);}
 
-h1 {
+h1, summary {
 	font-family: var(--font-heading);
 	font-style: bold;
 	font-weight: 600;
