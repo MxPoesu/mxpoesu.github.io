@@ -90,7 +90,6 @@ html {
 		padding-bottom: 15px;
 		padding-left: 35px;
 		padding-right: 35px;
-		text-align: left;
 		background-color: var(--col-primary);
 		border: 7px solid transparent;
 		border-image-source: url('images/border.webp');
