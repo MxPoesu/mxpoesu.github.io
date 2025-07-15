@@ -151,6 +151,7 @@ html {
 /* SCROLLBAR */
 ::-webkit-scrollbar {width: 24px;}
 ::-webkit-scrollbar-track {background: var(--col-bg-c2);}
+.longread::-webkit-scrollbar-track {background: var(--col-primary);}
 ::-webkit-scrollbar-thumb {background: rgba(255, 146, 0, 0.7); border-radius: 24px;}
 ::-webkit-scrollbar-thumb:hover {background: var(--col-text-a);}
 
@@ -159,6 +160,8 @@ html {
   display: block;
   border-style: solid;
 }
+
+.longread::-webkit-scrollbar-button:single-button {background-color: var(--col-primary)}
 
 	::-webkit-scrollbar-button:single-button:vertical:decrement {
 	  border-width: 0 12px 13px 12px;
@@ -406,6 +409,9 @@ footer {padding-bottom: 15px;}
 
 .menu {display: none;}
 @media only screen and (max-width: 768px) {.menu {display: block;}}
+
+
+
 
 
 
@@ -706,6 +712,7 @@ h1, summary {
 	text-decoration: none;
 	line-height: 1;
 	text-align: center;
+	text-wrap: balance;
 }
 
 h1 a {text-decoration: none;}
