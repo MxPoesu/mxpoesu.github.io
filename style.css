@@ -151,7 +151,7 @@ html {
 /* SCROLLBAR */
 ::-webkit-scrollbar {width: 24px; height: 14px;}
 ::-webkit-scrollbar-track {background: var(--col-bg-c2);}
-.longread::-webkit-scrollbar-track {background: var(--col-primary);}
+.longread::-webkit-scrollbar-track {background: transparent;}
 .comms::-webkit-scrollbar-track {background: transparent;}
 ::-webkit-scrollbar-thumb {background: rgba(255, 146, 0, 0.7); border-radius: 24px;}
 ::-webkit-scrollbar-thumb:hover {background: var(--col-text-a);}
@@ -630,9 +630,18 @@ footer {padding-bottom: 15px;}
 	height: 300px;
 }
 
-.examples {
-	padding: 10px;
-}
+.examples {padding: 10px;}
+	
+	.examples p {
+		display: flex; 
+		margin-top: -10px; 
+		align-items: center;
+	}
+	
+	.examples p b {
+		font-size: 200%; 
+		margin-right: 20px;
+	}
 
 
 
