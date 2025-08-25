@@ -149,9 +149,10 @@ html {
 
 
 /* SCROLLBAR */
-::-webkit-scrollbar {width: 24px;}
+::-webkit-scrollbar {width: 24px; height: 14px;}
 ::-webkit-scrollbar-track {background: var(--col-bg-c2);}
 .longread::-webkit-scrollbar-track {background: var(--col-primary);}
+.comms::-webkit-scrollbar-track {background: transparent;}
 ::-webkit-scrollbar-thumb {background: rgba(255, 146, 0, 0.7); border-radius: 24px;}
 ::-webkit-scrollbar-thumb:hover {background: var(--col-text-a);}
 
@@ -162,20 +163,33 @@ html {
 }
 
 .longread::-webkit-scrollbar-button:single-button {background-color: var(--col-primary)}
+.comms::-webkit-scrollbar-button:single-button {background-color: transparent;}
 
 	::-webkit-scrollbar-button:single-button:vertical:decrement {
 	  border-width: 0 12px 13px 12px;
 	  border-color: transparent transparent rgba(255, 146, 0, 0.7) transparent;
 	}
+	
+	::-webkit-scrollbar-button:single-button:horizontal:decrement {
+		border-width: 7px 13px 7px 0;
+		border-color: transparent rgba(255, 146, 0, 0.7) transparent transparent;
+	}
 
 		::-webkit-scrollbar-button:single-button:vertical:decrement:hover {border-color: transparent transparent var(--col-text-a) transparent;}
+		::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {border-color: transparent var(--col-text-a) transparent transparent;}
 
 	::-webkit-scrollbar-button:single-button:vertical:increment {
 	  border-width: 13px 12px 0 12px;
 	  border-color: rgba(255, 146, 0, 0.7) transparent transparent transparent;
 	}
+	
+	::-webkit-scrollbar-button:single-button:horizontal:increment {
+		border-width: 7px 0 7px 13px;
+		border-color: transparent transparent transparent rgba(255, 146, 0, 0.7);
+	}
 
 		::-webkit-scrollbar-button:vertical:single-button:increment:hover {border-color: var(--col-text-a) transparent transparent transparent;}
+		::-webkit-scrollbar-button:horizontal:single-button:increment:hover {border-color: transparent transparent transparent var(--col-text-a);}
 
 
 
@@ -603,9 +617,22 @@ footer {padding-bottom: 15px;}
 	}
 
 
+.comms {
+	max-width: 100%;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 10px;
+	overflow-x: scroll;
+}
 
- 
+.comms img {
+	width: auto;
+	height: 300px;
+}
 
+.examples {
+	padding: 10px;
+}
 
 
 
