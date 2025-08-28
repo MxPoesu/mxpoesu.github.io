@@ -625,11 +625,7 @@ footer {padding-bottom: 15px;}
 	overflow-x: scroll;
 }
 
-.comms img {
-	width: auto;
-	height: 300px;
-}
-
+.comms img {height: 300px;}
 .examples {padding: 10px;}
 	
 	.examples p {
