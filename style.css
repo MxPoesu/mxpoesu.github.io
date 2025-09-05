@@ -1,5 +1,4 @@
 /* ALL PAGES */
-/* ALL PAGES */
 
 html {
 	text-align: center;
@@ -626,6 +625,7 @@ footer {padding-bottom: 15px;}
 }
 
 .comms img {height: 300px;}
+
 .examples {padding: 10px;}
 	
 	.examples p {
@@ -638,7 +638,25 @@ footer {padding-bottom: 15px;}
 		font-size: 200%; 
 		margin-right: 20px;
 	}
-
+	
+	.mobilebr {display: none;}
+	
+	@media only screen and (max-width: 912px) {
+		.hscrolltip, .vscrolltip {
+			font-size: 80%;
+			text-align: center;
+		}
+		
+		.hscrolltip::after {
+		  content: " ↞ Scroll horizontally ↠ ";
+		}
+		
+		.vscrolltip::before {
+			content: " ↟ Scroll vertically ↡ ";
+		}
+		
+		.mobilebr {display: block;}
+}
 
 
 
