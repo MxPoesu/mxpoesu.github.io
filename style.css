@@ -29,8 +29,8 @@ html {
 	font-style: normal;
 	font-weight: 400;
 	font-size: 90%;	
-		--font-heading: Reenie Beanie, Times, serif;
-		--font-body: Raleway, Helvetica, Noto Color Emoji, sans-serif;
+		--font-heading: Reenie Beanie, Times New Roman, serif;
+		--font-body: Raleway, Helvetica, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif;
 		--font-mono: Roboto Mono, Courier New, monospace;
 } 
 	
