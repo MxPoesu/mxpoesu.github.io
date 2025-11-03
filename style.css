@@ -1,3 +1,5 @@
+/* Make code human-readable so beginners can learn something by inspecting the page! c: */
+
 html {
 	text-align: center;
 	color: var(--col-text-main);
@@ -7,26 +9,25 @@ html {
 	text-rendering: optimizeLegibility;
 	scroll-behavior: smooth;
 	scroll-padding-top: 40px;
-	background-color: var(--col-bg-c2); 
-	animation: gradient 1s;
-	animation-fill-mode: forwards;
 
 	color-scheme: light dark;
-		--col-primary: white;											/* Papers */
-		--col-secondary: #472536;										/* Brown. Navigation and footer */
-		--col-text-main: black;											/* Main body text */
-		--col-text-light: white;										/* Header and footer text */
-		--col-text-a: #ed8800;											/* Orange. Links on hover */
+		--col-primary: white;											/* Bodies of text (background) */
+		--col-secondary: #472536;										/* Brown. Guestbook */
+		--col-text-main: black;											/* Bodies of text (font) */
+		--col-text-light: white;										/* Guestbook messages */
+		--col-text-a: #ed8800;											/* Orange. Links on hover (unvisited) */
 		--col-text-date: #00AD57;										/* Green. Dates */
 		--col-text-select: rgba(0, 204, 99, 0.4);						/* Light green. Text selection */
 		--col-shadow: #C2C2C2;											/* Artwork shadow */
-		--col-bg-c1: rgba(var(--red), var(--green), var(--blue), 1);	/* Green. Gradient */
-		--col-bg-c2: #F2E4DA;											/* Light beige. Background */
-		--col-button: #472536;
-		--col-button-text: white;
+		--col-bg-c1: rgba(var(--red), var(--green), var(--blue), 1);	/* Green. Part of background gradient (bottom) */
+		--col-bg-c2: #F2E4DA;											/* Light beige. Part of background gradient (top) */
 		
 		--ex-opacity: 0.2;
-		
+	
+	background-color: var(--col-bg-c2); 
+	animation: gradient 1s;
+	animation-fill-mode: forwards; /* Stops on the last keyframe */
+	
 		--gradient-1: rgba(var(--red), var(--green), var(--blue), 0);
 		--gradient-2: rgba(var(--red), var(--green), var(--blue), 0.05);
 		--gradient-3: rgba(var(--red), var(--green), var(--blue), 0.1);
@@ -68,17 +69,15 @@ html {
 
  	@media (prefers-color-scheme: dark) {
 		html {
-			--col-primary: #292525;											/* Papers */
-			--col-secondary: #1A1015;										/* Brown. Navigation and footer */
-			--col-text-main: #D4D1CF;										/* Main body text */
-			--col-text-light: #D4D1CF;										/* Header and footer text */
-			--col-text-a: #FF9200;											/* Orange. Links on hover */
+			--col-primary: #292525;											/* Bodies of text (background) */
+			--col-secondary: #1A1015;										/* Almost black. Guestbook */
+			--col-text-main: #D4D1CF;										/* Bodies of text (font) */
+			--col-text-light: #D4D1CF;										/* Guestbook messages — same as main, NOT primary */
+			--col-text-a: #FF9200;											/* Orange. Links on hover (unvisited) */
 			--col-text-date: #37C77F;										/* Green. Dates */
 			--col-shadow: rgba(0, 0, 0, 0.5);								/* Artwork shadow */
-			--col-bg-c1: rgba(var(--red), var(--green), var(--blue), 1);	/* Green. Gradient */
-			--col-bg-c2: #0A0A09;											/* Black. Background */
-			--col-button: #D4D1CF;
-			--col-button-text: #0A0A09;
+			--col-bg-c1: rgba(var(--red), var(--green), var(--blue), 1);	/* Green. Part of background gradient (bottom) */
+			--col-bg-c2: #0A0A09;											/* Black. Part of background gradient (top) */
 			
 			--border: url('images/border-dark.webp');
 			
@@ -113,27 +112,29 @@ html {
 		
 		b {font-weight: var(--font-w-extrabold);}
 		body {background-image: url('images/bg-dark.png');}
-		.divider {filter: drop-shadow(1px 1px 2px #2A7A4A);}
+		.divider {filter: drop-shadow(1px 1px 2px #2A7A4A);} /* Lighter green than col-bg-c1 */
 	}
 
 		@media (prefers-color-scheme: light) {
-			html {--border: url('images/border.webp');}
+			html {--border: url('images/border-light.webp');}
 			body {background-image: url('images/bg-light.png');}
 		}
 		
 		@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
 			html {
-				--col-primary: black;			/* Papers */
-				--col-text-main: white;			/* Main body text */
-				--col-text-light: white;		/* Header and footer text */
+				--col-primary: black;			/* Bodies of text (background) */
+				--col-text-main: white;			/* Bodies of text (font) */
+				--col-text-light: white;		/* Guestbook messages — same as main, NOT primary */
 				--ex-opacity: 0.5;
 				
 				filter: brightness(100%);
 			}
 		}
 		
+		/* This monstrosity with different opacity for each keyframe is needed for the animation to be smooth. */
+		/* Otherwise it just doesn't work with linear-gradient for some reason (green colour pops into existance immediately) */
 		@keyframes gradient {
-			0% {background: linear-gradient(-10deg, var(--gradient-1), var(--col-bg-c2)); }
+			0% {background: linear-gradient(-10deg, var(--gradient-1), var(--col-bg-c2)); } /* Zero opacity */
 			5% {background: linear-gradient(-10deg, var(--gradient-2), var(--col-bg-c2)); }
 			10% {background: linear-gradient(-10deg, var(--gradient-3), var(--col-bg-c2)); }
 			15% {background: linear-gradient(-10deg, var(--gradient-4), var(--col-bg-c2)); }
@@ -153,11 +154,14 @@ html {
 			85% {background: linear-gradient(-10deg, var(--gradient-18), var(--col-bg-c2)); }
 			90% {background: linear-gradient(-10deg, var(--gradient-19), var(--col-bg-c2)); }
 			95% {background: linear-gradient(-10deg, var(--gradient-20), var(--col-bg-c2)); }
-			100% {background: linear-gradient(-10deg, var(--gradient-21), var(--col-bg-c2)); }
+			100% {background: linear-gradient(-10deg, var(--gradient-21), var(--col-bg-c2)); } /* No transparency */
 		}
 
 	* {box-sizing: border-box;}
-	body {margin: 0; min-height: 50rem;}
+	body {margin: 0; min-height: 80rem;} 
+	/* Min-height for background gradient and image to span across all length of a short page, esp. on a square monitors */
+	/* Adjust to the shortest page to not create body that is too long (current: guestbook.html) */
+	/* Adjust for new messages */
 	
 
 /* PROFILE CARD AND NAVIGATION ON INDEX */
@@ -167,13 +171,18 @@ html {
 	margin-left: auto; 
 	margin-right: auto; 
 	opacity: 1;
-	align-items: baseline;
 	display: grid;
 	grid-template-columns: auto auto;
 	gap: 30px;
 }
 	
-	.mainnav .longread {width: 100%; margin-top: 30px; margin-left: 0; margin-right: 0; padding: 15px;}
+	.mainnav .longread {
+		width: 100%; 
+		margin-top: 30px; 
+		margin-left: 0; 
+		margin-right: 0; 
+		padding: 15px;
+	}
 	
 	.pfp {
 		height: 90px;
@@ -192,10 +201,14 @@ html {
 		height: auto;
 	}
 
+	/* Unused code */
 	/* .indexli {text-wrap: balance; display: flex; flex-direction: column;} */
-	/* In case new list items get added to page navigation on index  */
+	/* On desktop shows list items on different rows. On mobile shows them in the same row */
+	/* In case new list items get added to page navigation on index alongside NSFW art link  */
 	
-	.navvbr {margin-bottom: 1rem;}
+	.navbr {margin-bottom: 1rem;} 
+	/* Space under the first li to separate 'artworks by year' and other list items */
+	/* Removed on mobile */
 
 	@media only screen and (max-width: 768px) {
 		html {font-size: 100%;}
@@ -208,11 +221,13 @@ html {
 		}
 		
 		.pfp {height: 150px;}
-		.indexnav ul {text-align: center;}
+		.indexnav ul {text-align: center;} /* Centers page navigation, not the menu */
 		.mainnav .longread {margin-top: 10px; padding: 25px;}
 		
+		/* Unused code */
 		/* .indexli {display: block;} */
-		/* In case new list items get added to page navigation on index  */
+		/* On desktop shows list items on different rows. On mobile shows them in the same row */
+		/* In case new list items get added to page navigation on index alongside NSFW art link  */
 		
 		.navvbr {margin-bottom: 0;}
 		
@@ -225,19 +240,39 @@ html {
 
 /* SCROLLBAR */
 ::-webkit-scrollbar {width: 24px; height: 14px;}
-::-webkit-scrollbar-track {background: var(--col-bg-c2);}
+::-webkit-scrollbar-track {background: var(--col-bg-c2);} /* Impossible to set as transparent on html and have a gradient */
 div::-webkit-scrollbar-track {background: transparent;}
-::-webkit-scrollbar-thumb {background: var(--sb); border-radius: 24px; cursor: grab;}
-::-webkit-scrollbar-thumb:hover {background: var(--sb-thumb);}
-::-webkit-scrollbar-thumb:active {cursor: grabbing;}
 
+::-webkit-scrollbar-thumb {
+	background: var(--sb); /* Darker */
+	border-radius: 24px; 
+	cursor: grab;
+} 
+
+	::-webkit-scrollbar-thumb:hover {background: var(--sb-thumb);} /* Lighter */
+	::-webkit-scrollbar-thumb:active {cursor: grabbing;}
+
+/* :single-button removes stupid redundant double buttons on default */
+/* For html */
 ::-webkit-scrollbar-button:single-button {
   background-color: var(--col-bg-c2);
   display: block;
   border-style: solid;
 }
 
+/* Scrollbar in elements of the page */
 div::-webkit-scrollbar-button:single-button {background-color: transparent;}
+
+	/* Creates a square element that appears as a pseudo triangle */
+	::-webkit-scrollbar-button:single-button:vertical:increment {
+	  border-width: 13px 12px 0 12px;
+	  border-color: var(--sb) transparent transparent transparent;
+	}
+	
+	::-webkit-scrollbar-button:single-button:horizontal:increment {
+		border-width: 7px 0 7px 13px;
+		border-color: transparent transparent transparent var(--sb);
+	}
 
 	::-webkit-scrollbar-button:single-button:vertical:decrement {
 	  border-width: 0 12px 13px 12px;
@@ -249,22 +284,11 @@ div::-webkit-scrollbar-button:single-button {background-color: transparent;}
 		border-color: transparent var(--sb) transparent transparent;
 	}
 
-
-	::-webkit-scrollbar-button:single-button:vertical:increment {
-	  border-width: 13px 12px 0 12px;
-	  border-color: var(--sb) transparent transparent transparent;
-	}
-	
-	::-webkit-scrollbar-button:single-button:horizontal:increment {
-		border-width: 7px 0 7px 13px;
-		border-color: transparent transparent transparent var(--sb);
-	}
-
-	::-webkit-scrollbar-button:single-button:vertical:decrement:hover {border-color: transparent transparent var(--sb-thumb) transparent;}
-	::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {border-color: transparent var(--sb-thumb) transparent transparent;}
 	::-webkit-scrollbar-button:vertical:single-button:increment:hover {border-color: var(--sb-thumb) transparent transparent transparent;}
 	::-webkit-scrollbar-button:horizontal:single-button:increment:hover {border-color: transparent transparent transparent var(--sb-thumb);}
-
+	::-webkit-scrollbar-button:single-button:vertical:decrement:hover {border-color: transparent transparent var(--sb-thumb) transparent;}
+	::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {border-color: transparent var(--sb-thumb) transparent transparent;}
+	
 html, .comms {--sb: rgba(255, 146, 0, 0.7); --sb-thumb: var(--col-text-a);} /* Orange */
 div {--sb: rgba(55, 199, 127, 0.7); --sb-thumb: rgba(55, 199, 127, 1);} 	/* Green */
 
@@ -287,8 +311,8 @@ div {--sb: rgba(55, 199, 127, 0.7); --sb-thumb: rgba(55, 199, 127, 1);} 	/* Gree
 	--offset: 100px; 
 	position: sticky;
 	position: -webkit-sticky;
-	background-color: var(--col-button);
-	color: var(--col-button-text);
+	background-color: var(--col-text-main);
+	color: var(--col-secondary);
 	border: 2px outset black;
 	border-radius: 50%;
 	padding-top: 0;
@@ -329,9 +353,21 @@ nav {
 	opacity: 0.8;
 }
 	
-footer {padding-bottom: 55px;}
+footer {padding-bottom: 55px;} /* Not margin as it doesn't include body background image */
 footer p {width: 90%; margin-left: auto; margin-right: auto;}
 footer a {font-weight: var(--font-w-extrabold);}
+
+.self-link {
+	color: var(--col-text-date);
+	padding-right: 3px;
+	font-family: var(--font-body);
+	font-size: 1.4rem;
+	font-style: normal;
+	font-weight: var(--font-w-bold);
+	user-select: none;
+}
+
+.self-link::after {content: " # "}
 
 
 /* APPEAR ANIMATION */
@@ -382,7 +418,7 @@ footer a {font-weight: var(--font-w-extrabold);}
 		padding: 0;
 	}
 
-.art-grid, .artwork-nav, .portfolio-single, .skip, summary {
+.art-grid, .artwork-nav, .portfolio-single, .skip {
 	margin-left: auto;
 	margin-right: auto;
 	width: 90%;
@@ -397,14 +433,28 @@ footer a {font-weight: var(--font-w-extrabold);}
 .artwork-nav, .longread, .guestbook {margin-top: 25px;}
 
 	@media only screen and (max-width: 768px) {
-		.longread, .art-grid, .artwork-nav, .guestbook-form, .inputarea, .submit, .guestbook-messages, .mainnav {font-size: 1.3rem;}
+		.longread, 
+		.art-grid, 
+		.artwork-nav, 
+		.guestbook-form, 
+		.inputarea, 
+		.submit, 
+		.guestbook-messages, 
+		.mainnav {
+			font-size: 1.3rem;
+		}
+		
 		.wip-about {margin: 15px;}
 		.longread {width: 90%;}
 	}
 		
 
 /* BORDER IMAGE */
-.longread, .artwork-nav, .portfolio-single, .guestbook-form, .guestbook-messages {
+.longread, 
+.artwork-nav, 
+.portfolio-single, 
+.guestbook-form, 
+.guestbook-messages {
 	background-color: var(--col-primary);
 	border: 7px solid transparent;
 	border-image-source: var(--border);
@@ -414,92 +464,6 @@ footer a {font-weight: var(--font-w-extrabold);}
 }
 
 
-/* BUTTONS */
-
-.contact img {
-	height: 35px; 
-	padding-left: 3px; 
-	padding-right: 3px;
-	width: auto; 
-	transition: 0.3s ease;
-}
-
-.contact img:hover {rotate: 10deg;}
-
-@media only screen and (max-width: 768px) {.contact img {height: 50px;}}
-@media(prefers-reduced-motion) {.contact img:hover {rotate: 4deg;}}
-
-.contacts, .controls {
-	margin-bottom: 0;
-	margin-top: 1.3rem;
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
-}
-
-.controls {
-	padding-top: 8px;
-	padding-bottom: 8px;
-	margin-top: 15px;
-	margin-bottom: 0;
-	font-size: 0.8rem;
-	display: grid;
-	grid-template-columns: auto auto auto;
-	width: 200px;
-}
-
-.buttonwall p {margin-top: 0.8rem; font-weight: var(--font-w-bold);}
-
-.buttonwall img {
-	image-rendering: optimizeSpeed;             
-    image-rendering: -moz-crisp-edges;          /* Firefox */
-    image-rendering: -o-crisp-edges;            /* Opera */
-    image-rendering: -webkit-optimize-contrast; /* Chrome/Safari */
-    image-rendering: pixelated;
-    image-rendering: optimize-contrast;         /* CSS3 */
-}
-	
-
-/* INDIVIUAL ARTWORK PAGES */
-
-.portfolio-grid img, .wip img {
-	height: 100%;
-	max-width: 100%;
-}
-
-	@media only screen and (min-width: 992px) {
-		.portfolio-grid {margin-left: auto; margin-right: auto; padding: 0;}
-		
-		.portfolio-grid img {
-			max-height: 100vh;
-			max-width: auto;
-			filter: drop-shadow(1px 4px 2px var(--col-shadow));
-		}
-		
-		.wip {text-align: center; height: 100vh; overflow-y: scroll;}
-		
-		.wip img {
-			height: auto; 
-			max-width: 450px; 
-		}
-		
-		.wip-about {
-			text-align: left;
-			padding-bottom: 20px;
-			margin: 0;
-		}
-			
-		.portfolio-grid {
-			display: grid;
-			grid-template-columns: auto 30%;
-			align-items: center;
-			padding: 10px;
-		}
-		
-		.portfolio-grid .artwork-nav {margin-top: 0; padding: 10px;}
-	}		
-		
-		
 /* FRONT PAGE ART LIST */
 
 .art-grid {width: 90%; margin-bottom: 15px;}
@@ -541,50 +505,151 @@ footer a {font-weight: var(--font-w-extrabold);}
 		@media only screen and (min-width: 1920px) {.pic-justify {column-count: 4;}}
 		@media only screen and (min-width: 2440px) {.pic-justify {column-count: 5;}}
 		
-		.pic-justify img, figure img{
-			background-color: #5d6266;
-			animation: loading 3s infinite;
+		/* Unused code */
+		/* Placeholder on slow load */
+		/* Impossible to make space for pictures before they load to prevent CLS, because they lack default width and height */
+		/* Width and height (or aspect ratio) can't be set because they're responsive and different for every image, i.e. the browser calculates it on load */
+		/* Only JS or PHP script can catch the calculated width and height and place it in html of every image to make the space for them beforehand */
+		/* .pic-justify img, figure img, .comms img {background-color: #5d6266; animation: loading 3s infinite;} */
+		/* @keyframes loading { */
+		  /* 0%   { background: #5d6266; } */
+		  /* 20%  { background: #62676B; } */
+		  /* 40%  { background: #666C70; } */
+		  /* 80%  { background: #62676B; } */
+		  /* 100% { background: #5d6266; } */
+		/* } */
+
+
+/* INDIVIUAL ARTWORK PAGES */
+
+.portfolio-grid img, .wip img {
+	height: 100%;
+	max-width: 100%;
+}
+
+	@media only screen and (min-width: 992px) {
+		.portfolio-grid {
+			margin-left: auto; 
+			margin-right: auto; 
+			padding: 0;
 		}
 		
-		@keyframes loading {
-		  0%   { background: #5d6266; }
-		  20%  { background: #62676B; }
-		  40%  { background: #666C70; }
-		  80%  { background: #62676B; }
-		  100% { background: #5d6266; }
+		.portfolio-grid img {
+			max-height: 100vh;
+			max-width: auto;
+			filter: drop-shadow(1px 4px 2px var(--col-shadow));
 		}
+		
+		.wip {text-align: center; height: 100vh; overflow-y: scroll;}
+		
+		.wip img {
+			height: auto; 
+			max-width: 450px; 
+		}
+		
+		.wip-about {
+			text-align: left;
+			padding-bottom: 20px;
+			margin: 0;
+		}
+			
+		.portfolio-grid {
+			display: grid;
+			grid-template-columns: auto 30%;
+			align-items: center;
+			padding: 10px;
+		}
+		
+		.portfolio-grid .artwork-nav {margin-top: 0; padding: 10px;}
+	}	
 
 
-/* COMMISSION AND TOS PAGE */
+/* BUTTONS */
+
+.contact img {
+	height: 35px; 
+	padding-left: 3px; 
+	padding-right: 3px;
+	width: auto; 
+	transition: 0.3s ease;
+}
+
+.contact img:hover {rotate: 10deg;}
+
+@media only screen and (max-width: 768px) {.contact img {height: 50px;}}
+@media(prefers-reduced-motion) {.contact img:hover {rotate: 4deg;}}
+
+.contacts, .controls {
+	margin-bottom: 0;
+	margin-top: 1.3rem;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.controls {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-top: 15px;
+	margin-bottom: 0;
+	font-size: 0.8rem;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	width: 200px;
+}
+
+.buttonwall p {
+	margin-top: 0.8rem; 
+	font-weight: var(--font-w-bold);
+}
+
+/* Desable anti-aliasing */
+.buttonwall img {
+	image-rendering: optimizeSpeed;             
+    image-rendering: -moz-crisp-edges;          /* Firefox */
+    image-rendering: -o-crisp-edges;            /* Opera */
+    image-rendering: -webkit-optimize-contrast; /* Chrome/Safari */
+    image-rendering: pixelated;
+    image-rendering: optimize-contrast;         /* CSS3 */
+}	
+
+
+/* COMMISSIONS AND TOS */
 
 .comms {
 	max-width: 100%;
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
 	gap: 10px;
 	overflow-x: scroll;
+	
+	/* First N is the maximum number of imagesin a row. Leaves a weird empty space after the last image if there's less than N of them in that row */
+	/* Adjust N if more images are added in at least one row */
+	grid-template-columns: repeat(5, 1fr); 
 }
 
-.comms img {height: 300px;}
-.examples {padding: 10px;}
+.comms img {height: 300px; width: auto;}
+.examples {padding: 10px; margin-bottom: 1rem;}
 	
 	.examples p {
 		display: flex; 
-		margin-top: -10px; 
+		margin-top: -10px; /* Keep */
 		align-items: center;
-		text-wrap: balance;
+		text-wrap: balance; /* Keep */
 	}
 	
+	/* Default creates too much space between the lines on mobile */
+	/* Don't set to .examples p, otherwise price text won't fit into the box */
 	.examples span {line-height: 1.1;}
 	
+	/* Price */
 	.examples p b {
 		font-size: 200%; 
 		margin-right: 20px;
 	}
 	
-	#exyellow {background-color: rgba(255, 228, 122, var(--ex-opacity));}
-	#exorange {background-color: rgba(255, 146, 0, var(--ex-opacity));}
-	#exred {background-color: rgba(255, 5, 0, var(--ex-opacity));}
+	#ex-yellow {background-color: rgba(255, 228, 122, var(--ex-opacity));}
+	#ex-orange {background-color: rgba(255, 146, 0, var(--ex-opacity));}
+	#ex-red {background-color: rgba(255, 5, 0, var(--ex-opacity));}
 	
 	@media only screen and (max-width: 912px) {
 		.hscrolltip, .vscrolltip {
@@ -615,6 +680,7 @@ footer a {font-weight: var(--font-w-extrabold);}
 	margin-right: auto;
 }
 
+	/* Fonts need to be set, otherwise they'll default to guestbooks.meadow.cafe settings */
 	.inputarea {
 		font-family: var(--font-body);
 		font-weight: var(--font-w-regular);
@@ -632,10 +698,12 @@ footer a {font-weight: var(--font-w-extrabold);}
 		font-family: var(--font-body);
 	}
 	
+	/* Make space for messages before they appear to prevent CLS */
+	/* Adjust for new messages */
 	.guestbook-messages {padding: 10px; min-height: 700px;}
-	#guestbooks___guestbook-messages-container {animation: 2.5s messappear;}
+	#guestbooks___guestbook-messages-container {animation: mess-appear 2.5s ;}
 	
-	@keyframes messappear {
+	@keyframes mess-appear {
 		0% {opacity: 0; }
 		10% {opacity: 0.08; }
 		100% {opacity: 1; }
@@ -664,12 +732,18 @@ footer a {font-weight: var(--font-w-extrabold);}
 
 /* EXPANDABLE ELEMENTS */
 
+/* Details element opens with animation instead of popping out */
 details {
 	max-width: 100%;
 	overflow: hidden; /* Keep this line to prevent an odd blue outline around the element in Safari */
 }
 
-    summary {display: block; margin-left: 0; margin-right: 0;}
+    summary {
+		display: block; 
+		margin-left: 0; 
+		margin-right: 0;
+	}
+		
     summary::-webkit-details-marker {display: none;}
 
     .animsummary {
@@ -721,21 +795,39 @@ a {
 	transition: 0.3s ease;
 }
 
-	.controls a:hover, .mainnav a:hover, a:hover {text-decoration: underline; text-decoration-thickness: 5px;}
-	.controls a:link, .mainnav a:link, a:link {text-decoration-color: var(--col-text-a);} /* Orange. Non-standart */
-	.controls a:visited, .mainnav a:visited, a:visited {text-decoration-color: #A94BDB;} /* Violet. Close to standart */
-	.controls :link:active, .controls :visited:active, .mainnav :link:active, .mainnav :visited:active, :link:active, :visited:active {text-decoration-color: #FF0000;} /* Red. Standart */
-	.controls a, .mainnav a, footer a, nav a, h1 a, h2 a, h3 a {text-decoration: none;}
-
-	.self-link {
-		color: var(--col-text-date);
-		padding-right: 5px;
-		font-family: var(--font-body);
-		font-size: 1.4rem;
-		font-style: normal;
-		font-weight: var(--font-w-bold);
-		user-select: none;
+	/* If element needs to be referred by a class, each class needs to be specified in :hover, :link, :visited, and :active */
+	/* Otherwise won't work somehow */
+	.controls a:hover, 
+	.mainnav a:hover, 
+	a:hover {
+		text-decoration: underline; text-decoration-thickness: 5px;
 	}
+	
+	/* Orange. Non-standart */
+	.controls a:link, 
+	.mainnav a:link, 
+	a:link {
+		text-decoration-color: var(--col-text-a);
+	} 
+	
+	/* Violet. Close to standart */
+	.controls a:visited, 
+	.mainnav a:visited, 
+	a:visited {
+		text-decoration-color: #A94BDB;
+	} 
+	
+	/* Red. Standart */
+	.controls :link:active, 
+	.controls :visited:active, 
+	.mainnav :link:active, 
+	.mainnav :visited:active, 
+	:link:active, 
+	:visited:active {
+		text-decoration-color: #FF0000;
+	} 
+	
+	.controls a, .mainnav a, footer a, nav a, h1 a, h2 a, h3 a {text-decoration: none;}
 
 
 /* TEXT FORMATTING */
@@ -794,6 +886,7 @@ figure {
 /* LISTS */
 ul, ol {margin-bottom: 0; text-align: left}
 
+/* list-style-type: none for navigation */
 ul {
 	list-style-type: none;
 	margin-top: 0;
