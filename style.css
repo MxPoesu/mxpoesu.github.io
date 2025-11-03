@@ -7,22 +7,50 @@ html {
 	text-rendering: optimizeLegibility;
 	scroll-behavior: smooth;
 	scroll-padding-top: 40px;
-	background: linear-gradient(-10deg, var(--col-bg-c1), var(--col-bg-c2));
+	background-color: var(--col-bg-c2); 
+	animation: gradient 1s;
+	animation-fill-mode: forwards;
 
 	color-scheme: light dark;
-		--col-primary: white;					/* Papers */
-		--col-secondary: #472536;				/* Brown. Navigation and footer */
-		--col-text-main: black;					/* Main body text */
-		--col-text-light: white;				/* Header and footer text */
-		--col-text-a: #ed8800;					/* Orange. Links on hover */
-		--col-text-date: #00AD57;				/* Green. Dates */
-		--col-text-select: rgba(0, 204, 99, 0.4);/* Light green. Text selection */
-		--col-shadow: #C2C2C2;					/* Artwork shadow */
-		--col-bg-c1: #C5E8D6;					/* Green. Gradient */
-		--col-bg-c2: #F2E4DA;					/* Light beige. Background */
+		--col-primary: white;											/* Papers */
+		--col-secondary: #472536;										/* Brown. Navigation and footer */
+		--col-text-main: black;											/* Main body text */
+		--col-text-light: white;										/* Header and footer text */
+		--col-text-a: #ed8800;											/* Orange. Links on hover */
+		--col-text-date: #00AD57;										/* Green. Dates */
+		--col-text-select: rgba(0, 204, 99, 0.4);						/* Light green. Text selection */
+		--col-shadow: #C2C2C2;											/* Artwork shadow */
+		--col-bg-c1: rgba(var(--red), var(--green), var(--blue), 1);	/* Green. Gradient */
+		--col-bg-c2: #F2E4DA;											/* Light beige. Background */
 		--col-button: #472536;
 		--col-button-text: white;
-		--exopacity: 0.2;
+		
+		--ex-opacity: 0.2;
+		
+		--gradient-1: rgba(var(--red), var(--green), var(--blue), 0);
+		--gradient-2: rgba(var(--red), var(--green), var(--blue), 0.05);
+		--gradient-3: rgba(var(--red), var(--green), var(--blue), 0.1);
+		--gradient-4: rgba(var(--red), var(--green), var(--blue), 0.15);
+		--gradient-5: rgba(var(--red), var(--green), var(--blue), 0.2);
+		--gradient-6: rgba(var(--red), var(--green), var(--blue), 0.25);
+		--gradient-7: rgba(var(--red), var(--green), var(--blue), 0.3);
+		--gradient-8: rgba(var(--red), var(--green), var(--blue), 0.35);
+		--gradient-9: rgba(var(--red), var(--green), var(--blue), 0.4);
+		--gradient-10: rgba(var(--red), var(--green), var(--blue), 0.45);
+		--gradient-11: rgba(var(--red), var(--green), var(--blue), 0.5);
+		--gradient-12: rgba(var(--red), var(--green), var(--blue), 0.55);
+		--gradient-13: rgba(var(--red), var(--green), var(--blue), 0.6);
+		--gradient-14: rgba(var(--red), var(--green), var(--blue), 0.65);
+		--gradient-15: rgba(var(--red), var(--green), var(--blue), 0.7);
+		--gradient-16: rgba(var(--red), var(--green), var(--blue), 0.75);
+		--gradient-17: rgba(var(--red), var(--green), var(--blue), 0.8);
+		--gradient-18: rgba(var(--red), var(--green), var(--blue), 0.85);
+		--gradient-19: rgba(var(--red), var(--green), var(--blue), 0.9);
+		--gradient-20: rgba(var(--red), var(--green), var(--blue), 0.95);
+		--gradient-21: rgba(var(--red), var(--green), var(--blue), 1);
+		--red: 197;
+		--green: 232;
+		--blue: 214;
 		
 	font-family: var(--font-body);
 	font-style: normal;
@@ -36,21 +64,48 @@ html {
 		--font-w-bold: 700;
 		--font-w-extrabold: 900;
 } 
-	
+
+
  	@media (prefers-color-scheme: dark) {
 		html {
-			--col-primary: #292525;				/* Papers */
-			--col-secondary: #1A1015;			/* Brown. Navigation and footer */
-			--col-text-main: #D4D1CF;			/* Main body text */
-			--col-text-light: #D4D1CF;			/* Header and footer text */
-			--col-text-a: #FF9200;				/* Orange. Links on hover */
-			--col-text-date: #37C77F;			/* Green. Dates */
-			--col-shadow: rgba(0, 0, 0, 0.5);	/* Artwork shadow */
-			--col-bg-c1: #275940;				/* Green. Gradient */
-			--col-bg-c2: #0A0A09;				/* Black. Background */
+			--col-primary: #292525;											/* Papers */
+			--col-secondary: #1A1015;										/* Brown. Navigation and footer */
+			--col-text-main: #D4D1CF;										/* Main body text */
+			--col-text-light: #D4D1CF;										/* Header and footer text */
+			--col-text-a: #FF9200;											/* Orange. Links on hover */
+			--col-text-date: #37C77F;										/* Green. Dates */
+			--col-shadow: rgba(0, 0, 0, 0.5);								/* Artwork shadow */
+			--col-bg-c1: rgba(var(--red), var(--green), var(--blue), 1);	/* Green. Gradient */
+			--col-bg-c2: #0A0A09;											/* Black. Background */
 			--col-button: #D4D1CF;
 			--col-button-text: #0A0A09;
+			
 			--border: url('images/border-dark.webp');
+			
+			--gradient-1: rgba(var(--red), var(--green), var(--blue), 0);
+			--gradient-2: rgba(var(--red), var(--green), var(--blue), 0.05);
+			--gradient-3: rgba(var(--red), var(--green), var(--blue), 0.1);
+			--gradient-4: rgba(var(--red), var(--green), var(--blue), 0.15);
+			--gradient-5: rgba(var(--red), var(--green), var(--blue), 0.2);
+			--gradient-6: rgba(var(--red), var(--green), var(--blue), 0.25);
+			--gradient-7: rgba(var(--red), var(--green), var(--blue), 0.3);
+			--gradient-8: rgba(var(--red), var(--green), var(--blue), 0.35);
+			--gradient-9: rgba(var(--red), var(--green), var(--blue), 0.4);
+			--gradient-10: rgba(var(--red), var(--green), var(--blue), 0.45);
+			--gradient-11: rgba(var(--red), var(--green), var(--blue), 0.5);
+			--gradient-12: rgba(var(--red), var(--green), var(--blue), 0.55);
+			--gradient-13: rgba(var(--red), var(--green), var(--blue), 0.6);
+			--gradient-14: rgba(var(--red), var(--green), var(--blue), 0.65);
+			--gradient-15: rgba(var(--red), var(--green), var(--blue), 0.7);
+			--gradient-16: rgba(var(--red), var(--green), var(--blue), 0.75);
+			--gradient-17: rgba(var(--red), var(--green), var(--blue), 0.8);
+			--gradient-18: rgba(var(--red), var(--green), var(--blue), 0.85);
+			--gradient-19: rgba(var(--red), var(--green), var(--blue), 0.9);
+			--gradient-20: rgba(var(--red), var(--green), var(--blue), 0.95);
+			--gradient-21: rgba(var(--red), var(--green), var(--blue), 1);
+			--red: 39;
+			--green: 89;
+			--blue: 64;
 			
 			font-weight: var(--font-w-semibold);
 			filter: brightness(90%);
@@ -71,14 +126,38 @@ html {
 				--col-primary: black;			/* Papers */
 				--col-text-main: white;			/* Main body text */
 				--col-text-light: white;		/* Header and footer text */
-				--exopacity: 0.5;
+				--ex-opacity: 0.5;
 				
 				filter: brightness(100%);
 			}
 		}
+		
+		@keyframes gradient {
+			0% {background: linear-gradient(-10deg, var(--gradient-1), var(--col-bg-c2)); }
+			5% {background: linear-gradient(-10deg, var(--gradient-2), var(--col-bg-c2)); }
+			10% {background: linear-gradient(-10deg, var(--gradient-3), var(--col-bg-c2)); }
+			15% {background: linear-gradient(-10deg, var(--gradient-4), var(--col-bg-c2)); }
+			20% {background: linear-gradient(-10deg, var(--gradient-5), var(--col-bg-c2)); }
+			25% {background: linear-gradient(-10deg, var(--gradient-6), var(--col-bg-c2)); }
+			30% {background: linear-gradient(-10deg, var(--gradient-7), var(--col-bg-c2)); }
+			35% {background: linear-gradient(-10deg, var(--gradient-8), var(--col-bg-c2)); }
+			40% {background: linear-gradient(-10deg, var(--gradient-9), var(--col-bg-c2)); }
+			45% {background: linear-gradient(-10deg, var(--gradient-10), var(--col-bg-c2)); }
+			50% {background: linear-gradient(-10deg, var(--gradient-11), var(--col-bg-c2)); }
+			55% {background: linear-gradient(-10deg, var(--gradient-12), var(--col-bg-c2)); }
+			60% {background: linear-gradient(-10deg, var(--gradient-13), var(--col-bg-c2)); }
+			65% {background: linear-gradient(-10deg, var(--gradient-14), var(--col-bg-c2)); }
+			70% {background: linear-gradient(-10deg, var(--gradient-15), var(--col-bg-c2)); }
+			75% {background: linear-gradient(-10deg, var(--gradient-16), var(--col-bg-c2)); }
+			80% {background: linear-gradient(-10deg, var(--gradient-17), var(--col-bg-c2)); }
+			85% {background: linear-gradient(-10deg, var(--gradient-18), var(--col-bg-c2)); }
+			90% {background: linear-gradient(-10deg, var(--gradient-19), var(--col-bg-c2)); }
+			95% {background: linear-gradient(-10deg, var(--gradient-20), var(--col-bg-c2)); }
+			100% {background: linear-gradient(-10deg, var(--gradient-21), var(--col-bg-c2)); }
+		}
 
 	* {box-sizing: border-box;}
-	body {margin: 0;}
+	body {margin: 0; min-height: 50rem;}
 	
 
 /* PROFILE CARD AND NAVIGATION ON INDEX */
@@ -219,7 +298,7 @@ div {--sb: rgba(55, 199, 127, 0.7); --sb-thumb: rgba(55, 199, 127, 1);} 	/* Gree
 	z-index: 9999;
 	bottom: 10px;
 	left: 96%;
-	font-weight: var(--font-w-bold);
+	font-weight: var(--font-w-extrabold);
 	font-size: 2rem;
 	text-decoration: none;
 	transform: translateY(-100%);
@@ -503,9 +582,9 @@ footer a {font-weight: var(--font-w-extrabold);}
 		margin-right: 20px;
 	}
 	
-	#exyellow {background-color: rgba(255, 228, 122, var(--exopacity));}
-	#exorange {background-color: rgba(255, 146, 0, var(--exopacity));}
-	#exred {background-color: rgba(255, 5, 0, var(--exopacity));}
+	#exyellow {background-color: rgba(255, 228, 122, var(--ex-opacity));}
+	#exorange {background-color: rgba(255, 146, 0, var(--ex-opacity));}
+	#exred {background-color: rgba(255, 5, 0, var(--ex-opacity));}
 	
 	@media only screen and (max-width: 912px) {
 		.hscrolltip, .vscrolltip {
