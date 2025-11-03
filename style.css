@@ -57,9 +57,14 @@ html {
 	font-style: normal;
 	font-weight: var(--font-w-regular);
 	font-size: 90%;	
+		
+		/* Fallback fonts, from the first to the last to load */
+		/* Reduces the CLS. Visit https://meowni.ca/font-style-matcher/ to pick the best fallback font */
+		/* Noto Color Emoji hosted for backward compatibility */
 		--font-heading: Reenie Beanie, Times New Roman, serif;
 		--font-body: Raleway, Helvetica, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif;
 		--font-mono: Roboto Mono, Courier New, monospace;
+		
 		--font-w-regular: 400;
 		--font-w-semibold: 500;
 		--font-w-bold: 700;
@@ -909,6 +914,16 @@ ol {
 
 
 /* FONTS */ 
+
+/* Don't rely on Google API! Host your fonts! */
+/* 1. Go on Google Fonts */
+/* 2. Choose a font. Click 'Get embed code' */
+/* 3. Under 'Embed code in the <head> of your html' find <link href="[link]". Go to that link */
+/* 4. Copy all CSS and paste into your own CSS file (you can leave out languages you don't need) */
+/* 5. Each subset has a url to a font file. Download each of them and place in your website folder */
+/* 6. Edit CSS to include your urls instead of Googles's */
+/* 7. Good job! */
+/* This will ensure privacy of your users and speed */
 
 @font-face {
   font-family: 'Reenie Beanie';
