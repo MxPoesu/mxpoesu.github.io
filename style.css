@@ -265,7 +265,7 @@ div::-webkit-scrollbar-track {background: transparent;}
   border-style: solid;
 }
 
-/* Scrollbar in elements of the page */
+/* For elements of the page */
 div::-webkit-scrollbar-button:single-button {background-color: transparent;}
 
 	/* Creates a square element that appears as a pseudo triangle */
@@ -455,6 +455,7 @@ footer a {font-weight: var(--font-w-extrabold);}
 		
 
 /* BORDER IMAGE */
+
 .longread, 
 .artwork-nav, 
 .portfolio-single, 
