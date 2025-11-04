@@ -211,6 +211,12 @@ html {
 		width: 100%;
 	}
 	
+	#a-right {
+		rotate: 180deg; 
+		-webkit-transform: scaleX(-1);
+		transform: scaleX(-1);
+	}
+	
 	.divider {
 		background-repeat: no-repeat;
 		background-size: 100% auto;
