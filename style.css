@@ -13,6 +13,7 @@ html {
 	color-scheme: light dark;
 		--col-primary: white;											/* Bodies of text (background) */
 		--col-secondary: #472536;										/* Brown. Guestbook */
+		--col-arrow: #D4D1CF;											/* Lightgray. Back-link symbol */
 		--col-text-main: black;											/* Bodies of text (font) */
 		--col-text-light: white;										/* Guestbook messages */
 		--col-text-a: #ed8800;											/* Orange. Links on hover (unvisited) */
@@ -74,15 +75,16 @@ html {
 
  	@media (prefers-color-scheme: dark) {
 		html {
-			--col-primary: #292525;											/* Bodies of text (background) */
+			--col-primary: #302C2C;											/* Bodies of text (background) */
 			--col-secondary: #1A1015;										/* Almost black. Guestbook */
+			--col-arrow: #472536;											/* Brown. Back-link symbol */
 			--col-text-main: #D4D1CF;										/* Bodies of text (font) */
 			--col-text-light: #D4D1CF;										/* Guestbook messages — same as main, NOT primary */
 			--col-text-a: #FF9200;											/* Orange. Links on hover (unvisited) */
 			--col-text-date: #37C77F;										/* Green. Dates */
 			--col-shadow: rgba(0, 0, 0, 0.5);								/* Artwork shadow */
 			--col-bg-c1: rgba(var(--red), var(--green), var(--blue), 1);	/* Green. Part of background gradient (bottom) */
-			--col-bg-c2: #0A0A09;											/* Black. Part of background gradient (top) */
+			--col-bg-c2: #171715;											/* Black. Part of background gradient (top) */
 			
 			--border: url('images/border-dark.webp');
 			
@@ -117,12 +119,15 @@ html {
 		
 		b {font-weight: var(--font-w-extrabold);}
 		body {background-image: url('images/bg-dark.png');}
-		.divider {filter: drop-shadow(1px 1px 2px #2A7A4A);} /* Lighter green than col-bg-c1 */
+		.divider {background-image: url("images/divider-dark.webp")}
+		.aside {background-image: url("images/aside-dark.webp");}
 	}
 
 		@media (prefers-color-scheme: light) {
 			html {--border: url('images/border-light.webp');}
 			body {background-image: url('images/bg-light.png');}
+			.divider {background-image: url("images/divider-light.webp")}
+			.aside {background-image: url("images/aside-light.webp");}
 		}
 		
 		@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
@@ -139,7 +144,7 @@ html {
 		/* This monstrosity with different opacity for each keyframe is needed for the animation to be smooth. */
 		/* Otherwise it just doesn't work with linear-gradient for some reason (green colour pops into existance immediately) */
 		@keyframes gradient {
-			0% {background: linear-gradient(-10deg, var(--gradient-1), var(--col-bg-c2)); } /* Zero opacity */
+			0% {background: linear-gradient(-10deg, var(--gradient-1), var(--col-bg-c2)); } /* Transparent */
 			5% {background: linear-gradient(-10deg, var(--gradient-2), var(--col-bg-c2)); }
 			10% {background: linear-gradient(-10deg, var(--gradient-3), var(--col-bg-c2)); }
 			15% {background: linear-gradient(-10deg, var(--gradient-4), var(--col-bg-c2)); }
@@ -172,20 +177,20 @@ html {
 /* PROFILE CARD AND NAVIGATION ON INDEX */
 
 .mainnav {
-	width: 60%;
+	width: 97.5%;
+	margin-top: 15px; 
+	margin-bottom: 25px; 
 	margin-left: auto; 
 	margin-right: auto; 
 	opacity: 1;
 	display: grid;
-	grid-template-columns: auto auto;
-	gap: 30px;
+	grid-template-columns: 17% 42% auto 17%;
+	gap: 15px;
 }
 	
 	.mainnav .longread {
-		width: 100%; 
-		margin-top: 30px; 
-		margin-left: 0; 
-		margin-right: 0; 
+		width: 100%;
+		margin: 0; 
 		padding: 15px;
 	}
 	
@@ -199,11 +204,23 @@ html {
 		display: block;
 	}
 	
+	.aside {
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 100%;
+		width: 100%;
+	}
+	
 	.divider {
-		margin-top: 30px; 
-		margin-bottom: 30px;
+		background-repeat: no-repeat;
+		background-size: 100% auto;
+		margin-top: 40px; 
+		margin-bottom: 40px;
+		margin-left: auto;
+		margin-right: auto;
 		max-width: 90%; 
-		height: auto;
+		width: 90%; 
+		height: 12vw; /* Relative to 1% of the width of the viewport */
 	}
 
 	/* Unused code */
@@ -211,7 +228,7 @@ html {
 	/* On desktop shows list items on different rows. On mobile shows them in the same row */
 	/* In case new list items get added to page navigation on index alongside NSFW art link  */
 	
-	.navbr {margin-bottom: 1rem;} 
+	.navbr {margin-bottom: 0.8rem;} 
 	/* Space under the first li to separate 'artworks by year' and other list items */
 	/* Removed on mobile */
 
@@ -222,12 +239,13 @@ html {
 			width: 90%;
 			display: block;
 			height: auto;
-			margin-bottom: 15px; 
+			margin-bottom: 0; 
 		}
 		
 		.pfp {height: 150px;}
 		.indexnav ul {text-align: center;} /* Centers page navigation, not the menu */
-		.mainnav .longread {margin-top: 10px; padding: 25px;}
+		.mainnav .longread {margin-top: 10px; margin-bottom: 25px; padding: 25px;}
+		.aside {display: hidden;}
 		
 		/* Unused code */
 		/* .indexli {display: block;} */
@@ -239,6 +257,21 @@ html {
 		.divider {
 			margin-top: 10px; 
 			margin-bottom: 10px;
+		}
+	}
+	
+	@media only screen and (min-width: 768px) {
+		#i-left { 
+			width: 100%; 
+			margin-left: auto; 
+			margin-right: 8px;
+		}
+		
+		#i-right {
+			max-width: 100%; 
+			width: 95%; 
+			margin-left: 8px; 
+			margin-right: auto;
 		}
 	}
 
@@ -317,7 +350,7 @@ div {--sb: rgba(55, 199, 127, 0.7); --sb-thumb: rgba(55, 199, 127, 1);} 	/* Gree
 	position: sticky;
 	position: -webkit-sticky;
 	background-color: var(--col-text-main);
-	color: var(--col-secondary);
+	color: var(--col-arrow);
 	border: 2px outset black;
 	border-radius: 50%;
 	padding-top: 0;
@@ -680,7 +713,7 @@ footer a {font-weight: var(--font-w-extrabold);}
 .guestbook {
 	font-size: 1rem;
 	text-align: center;
-	width: 90%;
+	width: 60%;
 	padding-bottom: 15px;
 	margin-left: auto;
 	margin-right: auto;
@@ -729,12 +762,7 @@ footer a {font-weight: var(--font-w-extrabold);}
 
 	
 	@media only screen and (max-width: 768px) {
-		.guestbook {
-			width: 90%;
-			margin-left: auto;
-			margin-right: auto;
-		}
-		
+		.guestbook {width: 90%;}
 		.guestbook-messages {padding: 15px; min-height: 700px;}
 	}
 
@@ -860,26 +888,26 @@ h2, h3, summary {
 	font-family: var(--font-body);
 	font-style: bold;
 	font-weight: var(--font-w-extrabold);
-	font-size: 1.3rem;
+	font-size: 1.2rem;
 	margin-top: 5px;
 	margin-bottom: 5px;
 	text-decoration: none;
-	text-align: center;
 }
-	@media only screen and (max-width: 768px) {
-		h1 {font-size: 3rem;}
-		h2 {font-size: 1.6rem;}
-	}
 
-p {
-	margin-bottom: 0;
-	margin-top:0;
-}
+h2 {text-align: center;}
+h3 {text-align: left;}
+p {margin-bottom: 0; margin-top: 0;}
 
 time, .readingtime {
 	color: var(--col-text-date);
 	font-family: var(--font-mono);
 }
+
+	@media only screen and (max-width: 768px) {
+		h1 {font-size: 3.5rem;}
+		h2, h3, summary {font-size: 1.5rem;}
+		.time-date {font-size: 72%;}
+	}
 
 summary {cursor: pointer;}
 
