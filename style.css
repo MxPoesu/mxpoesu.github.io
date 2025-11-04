@@ -234,7 +234,7 @@ html {
 		/* On desktop shows list items on different rows. On mobile shows them in the same row */
 		/* In case new list items get added to page navigation on index alongside NSFW art link  */
 		
-		.navvbr {margin-bottom: 0;}
+		.navbr {margin-bottom: 0;}
 		
 		.divider {
 			margin-top: 10px; 
@@ -326,7 +326,7 @@ div {--sb: rgba(55, 199, 127, 0.7); --sb-thumb: rgba(55, 199, 127, 1);} 	/* Gree
 	padding-right: 10px;
 	z-index: 9999;
 	bottom: 10px;
-	left: 96%;
+	left: 95%;
 	font-weight: var(--font-w-extrabold);
 	font-size: 2rem;
 	text-decoration: none;
@@ -373,6 +373,7 @@ footer a {font-weight: var(--font-w-extrabold);}
 }
 
 .self-link::after {content: " # "}
+.skip {margin-left: auto; margin-right: auto;}
 
 
 /* APPEAR ANIMATION */
@@ -423,12 +424,6 @@ footer a {font-weight: var(--font-w-extrabold);}
 		padding: 0;
 	}
 
-.art-grid, .artwork-nav, .portfolio-single, .skip {
-	margin-left: auto;
-	margin-right: auto;
-	width: 90%;
-}
-
 .longread, .artwork-nav, .guestbook-form, .guestbook-form {
 	border-radius: 2px;
 	font-size: 1rem;
@@ -457,8 +452,7 @@ footer a {font-weight: var(--font-w-extrabold);}
 /* BORDER IMAGE */
 
 .longread, 
-.artwork-nav, 
-.portfolio-single, 
+.artwork-nav,
 .guestbook-form, 
 .guestbook-messages {
 	background-color: var(--col-primary);
@@ -472,7 +466,12 @@ footer a {font-weight: var(--font-w-extrabold);}
 
 /* FRONT PAGE ART LIST */
 
-.art-grid {width: 90%; margin-bottom: 15px;}
+.art-grid {
+	width: 99%; 
+	margin-bottom: 15px; 
+	margin-left: auto; 
+	margin-right: auto;
+}
 
 	.art-grid img {
 		filter: drop-shadow(1px 4px 2px var(--col-shadow));
@@ -492,14 +491,10 @@ footer a {font-weight: var(--font-w-extrabold);}
 	.pic-justify {
 		column-count: 3; 
 		justify-content: center;
-		
 	}
 	
 	.pic-justify img {transition: 0.3s ease;}
-	
-	.pic-justify img:hover {
-		rotate: 1deg;
-	}
+	.pic-justify img:hover {rotate: 1deg;}
 		
 		@media(prefers-reduced-motion) {.pic-justify img:hover {rotate: 0.3deg;}}
 	
@@ -533,6 +528,13 @@ footer a {font-weight: var(--font-w-extrabold);}
 	max-width: 100%;
 }
 
+	.artwork-nav {
+		padding: 10px; 
+		width: 90%;
+		margin-left: auto; 
+		margin-right: auto;
+	}
+
 	@media only screen and (min-width: 992px) {
 		.portfolio-grid {
 			margin-left: auto; 
@@ -542,7 +544,7 @@ footer a {font-weight: var(--font-w-extrabold);}
 		
 		.portfolio-grid img {
 			max-height: 100vh;
-			max-width: auto;
+			max-width: 95%;
 			filter: drop-shadow(1px 4px 2px var(--col-shadow));
 		}
 		
@@ -565,8 +567,6 @@ footer a {font-weight: var(--font-w-extrabold);}
 			align-items: center;
 			padding: 10px;
 		}
-		
-		.portfolio-grid .artwork-nav {margin-top: 0; padding: 10px;}
 	}	
 
 
@@ -582,7 +582,7 @@ footer a {font-weight: var(--font-w-extrabold);}
 
 .contact img:hover {rotate: 10deg;}
 
-@media only screen and (max-width: 768px) {.contact img {height: 50px;}}
+@media only screen and (max-width: 768px) {.contact img {height: 50px; rotate: 0deg;}}
 @media(prefers-reduced-motion) {.contact img:hover {rotate: 4deg;}}
 
 .contacts, .controls {
@@ -706,12 +706,13 @@ footer a {font-weight: var(--font-w-extrabold);}
 	
 	/* Make space for messages before they appear to prevent CLS */
 	/* Adjust for new messages */
-	.guestbook-messages {padding: 10px; min-height: 700px;}
+	.guestbook-messages {padding: 25px; min-height: 700px;}
 	#guestbooks___guestbook-messages-container {animation: mess-appear 2.5s ;}
 	
 	@keyframes mess-appear {
 		0% {opacity: 0; }
-		10% {opacity: 0.08; }
+		10% {opacity: 0.05; }
+		20% {opacity: 0.10; }
 		100% {opacity: 1; }
 	}
 	
@@ -733,6 +734,8 @@ footer a {font-weight: var(--font-w-extrabold);}
 			margin-left: auto;
 			margin-right: auto;
 		}
+		
+		.guestbook-messages {padding: 15px; min-height: 700px;}
 	}
 
 
