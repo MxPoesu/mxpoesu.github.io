@@ -255,6 +255,7 @@ html {
 		.navbr {margin-bottom: 0;}
 		
 		.divider {
+			background-image: url("images/divider.webp");
 			margin-top: 10px; 
 			margin-bottom: 10px;
 		}
