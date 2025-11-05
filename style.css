@@ -11,21 +11,24 @@ html {
 	scroll-padding-top: 40px;
 
 	color-scheme: light dark;
-		--col-primary: white;											/* Bodies of text (background) */
-		--col-secondary: #472536;										/* Brown. Guestbook */
-		--col-arrow: #D4D1CF;											/* Lightgray. Back-link symbol */
-		--col-text-main: black;											/* Bodies of text (font) */
-		--col-text-light: white;										/* Guestbook messages */
-		--col-text-a: #ed8800;											/* Orange. Links on hover (unvisited) */
-		--col-text-date: #00AD57;										/* Green. Dates */
-		--col-text-select: rgba(0, 204, 99, 0.4);						/* Light green. Text selection */
-		--col-shadow: #C2C2C2;											/* Artwork shadow */
-		--col-bg-c1: rgba(var(--red), var(--green), var(--blue), 1);	/* Green. Part of background gradient (bottom) */
-		--col-bg-c2: #F2E4DA;											/* Light beige. Part of background gradient (top) */
+		--col-primary: white;												/* Bodies of text (background) */
+		--col-secondary: var(--col-brown);									/* Guestbook */
+		--col-arrow: var(--col-lightgray);									/* Back-link symbol */
+		--col-button: var(--col-brown);										/* Back-link */
+		--col-text-main: black;												/* Bodies of text (font) */
+		--col-text-light: white;											/* Guestbook messages */
+		--col-text-a: #ed8800;												/* Orange. Links on hover (unvisited) */
+		--col-text-date: #00AD57;											/* Bright green. Dates */
+		--col-text-select: rgba(0, 204, 99, 0.4);							/* Light green. Text selection */
+		--col-shadow: #C2C2C2;												/* Artwork shadow */
+		--col-bg-bottom: rgba(var(--red), var(--green), var(--blue), 1);	/* Light green-blue. Part of background gradient */
+		--col-bg-top: #F2E4DA;												/* Light beige. Part of background gradient */
+		--col-lightgray: #D4D1CF;
+		--col-brown: #472536;
 		
 		--ex-opacity: 0.2;
 	
-	background-color: var(--col-bg-c2); 
+	background-color: var(--col-bg-top); 
 	animation: gradient 1s;
 	animation-fill-mode: forwards; /* Stops on the last keyframe */
 	
@@ -56,7 +59,7 @@ html {
 		
 	font-family: var(--font-body);
 	font-style: normal;
-	font-weight: var(--font-w-regular);
+	font-weight: var(--regular);
 	font-size: 90%;	
 		
 		/* Fallback fonts, from the first to the last to load */
@@ -66,27 +69,27 @@ html {
 		--font-body: Raleway, Helvetica, Apple Color Emoji, Segoe UI Emoji, Noto Color Emoji, sans-serif;
 		--font-mono: Roboto Mono, Courier New, monospace;
 		
-		--font-w-regular: 400;
-		--font-w-semibold: 500;
-		--font-w-bold: 700;
-		--font-w-extrabold: 900;
+		/* Font-weight */
+		--regular: 400;
+		--semibold: 500;
+		--bold: 700;
+		--extrabold: 900;
 } 
 
 
  	@media (prefers-color-scheme: dark) {
 		html {
-			--col-primary: #302C2C;											/* Bodies of text (background) */
-			--col-secondary: #1A1015;										/* Almost black. Guestbook */
-			--col-arrow: #472536;											/* Brown. Back-link symbol */
-			--col-text-main: #D4D1CF;										/* Bodies of text (font) */
-			--col-text-light: #D4D1CF;										/* Guestbook messages — same as main, NOT primary */
-			--col-text-a: #FF9200;											/* Orange. Links on hover (unvisited) */
-			--col-text-date: #37C77F;										/* Green. Dates */
-			--col-shadow: rgba(0, 0, 0, 0.5);								/* Artwork shadow */
-			--col-bg-c1: rgba(var(--red), var(--green), var(--blue), 1);	/* Green. Part of background gradient (bottom) */
-			--col-bg-c2: #171715;											/* Black. Part of background gradient (top) */
-			
-			--border: url('images/border-dark.webp');
+			--col-primary: #302C2C;												/* Bodies of text (background) */
+			--col-secondary: #1A1015;											/* Ligther black. Guestbook */
+			--col-arrow: var(--col-brown);										/* Back-link symbol */
+			--col-button: var(--col-lightgray);									/* Back-link */
+			--col-text-main: var(--col-lightgray);								/* Bodies of text (font) */
+			--col-text-light: var(--col-lightgray);								/* Guestbook messages — same as text-main, NOT primary */
+			--col-text-a: #FF9200;												/* Orange. Links on hover (unvisited) */
+			--col-text-date: #37C77F;											/* Bright green. Dates */
+			--col-shadow: rgba(0, 0, 0, 0.5);									/* Artwork shadow */
+			--col-bg-bottom: rgba(var(--red), var(--green), var(--blue), 1);	/* Light green-blue. Part of background gradient */
+			--col-bg-top: #171715;												/* Almost black. Part of background gradient */
 			
 			--gradient-1: rgba(var(--red), var(--green), var(--blue), 0);
 			--gradient-2: rgba(var(--red), var(--green), var(--blue), 0.05);
@@ -113,21 +116,19 @@ html {
 			--green: 89;
 			--blue: 64;
 			
-			font-weight: var(--font-w-semibold);
+			font-weight: var(--semibold);
 			filter: brightness(90%);
 		}
 		
-		b {font-weight: var(--font-w-extrabold);}
+		b {font-weight: var(--extrabold);}
 		body {background-image: url('images/bg-dark.png');}
-		.divider {background-image: url("images/divider-dark.webp")}
-		.aside {background-image: url("images/aside-dark.webp");}
+		.divider {background-image: url("images/divider-dark.webp"); }
 	}
 
 		@media (prefers-color-scheme: light) {
-			html {--border: url('images/border-light.webp');}
 			body {background-image: url('images/bg-light.png');}
-			.divider {background-image: url("images/divider-light.webp")}
-			.aside {background-image: url("images/aside-light.webp");}
+			.divider {background-image: url("images/divider-light.webp"); }
+			.aside {filter: saturate(15%) brightness(85%);}
 		}
 		
 		@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
@@ -135,6 +136,7 @@ html {
 				--col-primary: black;			/* Bodies of text (background) */
 				--col-text-main: white;			/* Bodies of text (font) */
 				--col-text-light: white;		/* Guestbook messages — same as main, NOT primary */
+				--col-lightgray: white;
 				--ex-opacity: 0.5;
 				
 				filter: brightness(100%);
@@ -144,27 +146,27 @@ html {
 		/* This monstrosity with different opacity for each keyframe is needed for the animation to be smooth. */
 		/* Otherwise it just doesn't work with linear-gradient for some reason (green colour pops into existance immediately) */
 		@keyframes gradient {
-			0% {background: linear-gradient(-10deg, var(--gradient-1), var(--col-bg-c2)); } /* Transparent */
-			5% {background: linear-gradient(-10deg, var(--gradient-2), var(--col-bg-c2)); }
-			10% {background: linear-gradient(-10deg, var(--gradient-3), var(--col-bg-c2)); }
-			15% {background: linear-gradient(-10deg, var(--gradient-4), var(--col-bg-c2)); }
-			20% {background: linear-gradient(-10deg, var(--gradient-5), var(--col-bg-c2)); }
-			25% {background: linear-gradient(-10deg, var(--gradient-6), var(--col-bg-c2)); }
-			30% {background: linear-gradient(-10deg, var(--gradient-7), var(--col-bg-c2)); }
-			35% {background: linear-gradient(-10deg, var(--gradient-8), var(--col-bg-c2)); }
-			40% {background: linear-gradient(-10deg, var(--gradient-9), var(--col-bg-c2)); }
-			45% {background: linear-gradient(-10deg, var(--gradient-10), var(--col-bg-c2)); }
-			50% {background: linear-gradient(-10deg, var(--gradient-11), var(--col-bg-c2)); }
-			55% {background: linear-gradient(-10deg, var(--gradient-12), var(--col-bg-c2)); }
-			60% {background: linear-gradient(-10deg, var(--gradient-13), var(--col-bg-c2)); }
-			65% {background: linear-gradient(-10deg, var(--gradient-14), var(--col-bg-c2)); }
-			70% {background: linear-gradient(-10deg, var(--gradient-15), var(--col-bg-c2)); }
-			75% {background: linear-gradient(-10deg, var(--gradient-16), var(--col-bg-c2)); }
-			80% {background: linear-gradient(-10deg, var(--gradient-17), var(--col-bg-c2)); }
-			85% {background: linear-gradient(-10deg, var(--gradient-18), var(--col-bg-c2)); }
-			90% {background: linear-gradient(-10deg, var(--gradient-19), var(--col-bg-c2)); }
-			95% {background: linear-gradient(-10deg, var(--gradient-20), var(--col-bg-c2)); }
-			100% {background: linear-gradient(-10deg, var(--gradient-21), var(--col-bg-c2)); } /* No transparency */
+			0% {background: linear-gradient(-10deg, var(--gradient-1), var(--col-bg-top)); } /* Transparent */
+			5% {background: linear-gradient(-10deg, var(--gradient-2), var(--col-bg-top)); }
+			10% {background: linear-gradient(-10deg, var(--gradient-3), var(--col-bg-top)); }
+			15% {background: linear-gradient(-10deg, var(--gradient-4), var(--col-bg-top)); }
+			20% {background: linear-gradient(-10deg, var(--gradient-5), var(--col-bg-top)); }
+			25% {background: linear-gradient(-10deg, var(--gradient-6), var(--col-bg-top)); }
+			30% {background: linear-gradient(-10deg, var(--gradient-7), var(--col-bg-top)); }
+			35% {background: linear-gradient(-10deg, var(--gradient-8), var(--col-bg-top)); }
+			40% {background: linear-gradient(-10deg, var(--gradient-9), var(--col-bg-top)); }
+			45% {background: linear-gradient(-10deg, var(--gradient-10), var(--col-bg-top)); }
+			50% {background: linear-gradient(-10deg, var(--gradient-11), var(--col-bg-top)); }
+			55% {background: linear-gradient(-10deg, var(--gradient-12), var(--col-bg-top)); }
+			60% {background: linear-gradient(-10deg, var(--gradient-13), var(--col-bg-top)); }
+			65% {background: linear-gradient(-10deg, var(--gradient-14), var(--col-bg-top)); }
+			70% {background: linear-gradient(-10deg, var(--gradient-15), var(--col-bg-top)); }
+			75% {background: linear-gradient(-10deg, var(--gradient-16), var(--col-bg-top)); }
+			80% {background: linear-gradient(-10deg, var(--gradient-17), var(--col-bg-top)); }
+			85% {background: linear-gradient(-10deg, var(--gradient-18), var(--col-bg-top)); }
+			90% {background: linear-gradient(-10deg, var(--gradient-19), var(--col-bg-top)); }
+			95% {background: linear-gradient(-10deg, var(--gradient-20), var(--col-bg-top)); }
+			100% {background: linear-gradient(-10deg, var(--gradient-21), var(--col-bg-top)); } /* No transparency */
 		}
 
 	* {box-sizing: border-box;}
@@ -205,6 +207,7 @@ html {
 	}
 	
 	.aside {
+		background-image: url("images/aside.webp");
 		background-repeat: no-repeat;
 		background-size: cover;
 		height: 100%;
@@ -284,7 +287,7 @@ html {
 
 /* SCROLLBAR */
 ::-webkit-scrollbar {width: 24px; height: 14px;}
-::-webkit-scrollbar-track {background: var(--col-bg-c2);} /* Impossible to set as transparent on html and have a gradient */
+::-webkit-scrollbar-track {background: var(--col-bg-top);} /* Impossible to set as transparent on html and have a gradient */
 div::-webkit-scrollbar-track {background: transparent;}
 
 ::-webkit-scrollbar-thumb {
@@ -299,7 +302,7 @@ div::-webkit-scrollbar-track {background: transparent;}
 /* :single-button removes stupid redundant double buttons on default */
 /* For html */
 ::-webkit-scrollbar-button:single-button {
-  background-color: var(--col-bg-c2);
+  background-color: var(--col-bg-top);
   display: block;
   border-style: solid;
 }
@@ -340,7 +343,7 @@ div {--sb: rgba(55, 199, 127, 0.7); --sb-thumb: rgba(55, 199, 127, 1);} 	/* Gree
 /* SKIP TO CONTENT */
 
 .skip-link {
-	font-weight: var(--font-w-bold);
+	font-weight: var(--bold);
 	transform: translateY(-100%);
 	font-size: 80%;
 	opacity: 0.7;
@@ -355,7 +358,7 @@ div {--sb: rgba(55, 199, 127, 0.7); --sb-thumb: rgba(55, 199, 127, 1);} 	/* Gree
 	--offset: 100px; 
 	position: sticky;
 	position: -webkit-sticky;
-	background-color: var(--col-text-main);
+	background-color: var(--col-button);
 	color: var(--col-arrow);
 	border: 2px outset black;
 	border-radius: 50%;
@@ -366,7 +369,7 @@ div {--sb: rgba(55, 199, 127, 0.7); --sb-thumb: rgba(55, 199, 127, 1);} 	/* Gree
 	z-index: 9999;
 	bottom: 10px;
 	left: 95%;
-	font-weight: var(--font-w-extrabold);
+	font-weight: var(--extrabold);
 	font-size: 2rem;
 	text-decoration: none;
 	transform: translateY(-100%);
@@ -399,7 +402,7 @@ nav {
 	
 footer {padding-bottom: 55px;} /* Not margin as it doesn't include body background image */
 footer p {width: 90%; margin-left: auto; margin-right: auto;}
-footer a {font-weight: var(--font-w-extrabold);}
+footer a {font-weight: var(--extrabold);}
 
 .self-link {
 	color: var(--col-text-date);
@@ -407,7 +410,7 @@ footer a {font-weight: var(--font-w-extrabold);}
 	font-family: var(--font-body);
 	font-size: 1.4rem;
 	font-style: normal;
-	font-weight: var(--font-w-bold);
+	font-weight: var(--bold);
 	user-select: none;
 }
 
@@ -496,7 +499,7 @@ footer a {font-weight: var(--font-w-extrabold);}
 .guestbook-messages {
 	background-color: var(--col-primary);
 	border: 7px solid transparent;
-	border-image-source: var(--border);
+	border-image-source: url('images/border.webp');
 	border-image-slice: 20;
 	border-image-outset: 3px;
 	padding: 25px;
@@ -522,7 +525,7 @@ footer a {font-weight: var(--font-w-extrabold);}
 		margin-bottom: 10px;
 		margin-left: 30px;
 		font-style: normal;
-		font-weight: var(--font-w-regular);
+		font-weight: var(--regular);
 		text-align: left;
 		padding: 3px;
 	}
@@ -645,7 +648,7 @@ footer a {font-weight: var(--font-w-extrabold);}
 
 .buttonwall p {
 	margin-top: 0.8rem; 
-	font-weight: var(--font-w-bold);
+	font-weight: var(--bold);
 }
 
 /* Desable anti-aliasing */
@@ -728,7 +731,7 @@ footer a {font-weight: var(--font-w-extrabold);}
 	/* Fonts need to be set, otherwise they'll default to guestbooks.meadow.cafe settings */
 	.inputarea {
 		font-family: var(--font-body);
-		font-weight: var(--font-w-regular);
+		font-weight: var(--regular);
 		color: var(--col-text-main);
 		background-color: var(--col-primary);
 		border: 2px inset lightgray;
@@ -880,7 +883,7 @@ a {
 h1 {
 	font-family: var(--font-heading);
 	font-style: bold;
-	font-weight: var(--font-w-extrabold);
+	font-weight: var(--extrabold);
 	font-size: 2.6rem;
 	margin-top: 0;
 	margin-bottom: 5px;
@@ -893,7 +896,7 @@ h1 {
 h2, h3, summary {
 	font-family: var(--font-body);
 	font-style: bold;
-	font-weight: var(--font-w-extrabold);
+	font-weight: var(--extrabold);
 	font-size: 1.2rem;
 	margin-top: 5px;
 	margin-bottom: 5px;
