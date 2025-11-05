@@ -26,7 +26,7 @@ html {
 		--col-lightgray: #D4D1CF;
 		--col-brown: #472536;
 		
-		--ex-opacity: 0.2;
+		--ex-opacity: 0.3;
 	
 	background-color: var(--col-bg-top); 
 	animation: gradient 1s;
@@ -120,7 +120,7 @@ html {
 			filter: brightness(90%);
 		}
 		
-		b {font-weight: var(--extrabold);}
+		strong {font-weight: var(--extrabold);}
 		body {background-image: url('images/bg-dark.png');}
 		.divider {background-image: url("images/divider-dark.webp"); }
 	}
@@ -131,13 +131,25 @@ html {
 			.aside {filter: saturate(15%) brightness(85%);}
 		}
 		
+		@media (prefers-color-scheme: light) and (prefers-contrast: more) {
+			html {
+				--col-text-date: rgba(var(--date-r), var(--date-g), var(--date-b), 1);
+				--date-r: 43;
+				--date-g: 156;
+				--date-b: 95;
+			}
+			
+			time, .readingtime {font-weight: var(--bold);}
+		}
+		
+		@media(prefers-contrast: more) {html {--ex-opacity: 0.5;}}
+		
 		@media (prefers-color-scheme: dark) and (prefers-contrast: more) {
 			html {
 				--col-primary: black;			/* Bodies of text (background) */
 				--col-text-main: white;			/* Bodies of text (font) */
 				--col-text-light: white;		/* Guestbook messages — same as main, NOT primary */
 				--col-lightgray: white;
-				--ex-opacity: 0.5;
 				
 				filter: brightness(100%);
 			}
@@ -286,9 +298,11 @@ html {
 
 
 /* SCROLLBAR */
+/* -webkit-scrollbar ONLY works with html TAGS, not classes! */
+
 ::-webkit-scrollbar {width: 24px; height: 14px;}
 ::-webkit-scrollbar-track {background: var(--col-bg-top);} /* Impossible to set as transparent on html and have a gradient */
-div::-webkit-scrollbar-track {background: transparent;}
+article::-webkit-scrollbar-track, figure::-webkit-scrollbar-track, div::-webkit-scrollbar-track {background: transparent;}
 
 ::-webkit-scrollbar-thumb {
 	background: var(--sb); /* Darker */
@@ -296,7 +310,7 @@ div::-webkit-scrollbar-track {background: transparent;}
 	cursor: grab;
 } 
 
-	::-webkit-scrollbar-thumb:hover {background: var(--sb-thumb);} /* Lighter */
+	::-webkit-scrollbar-thumb:hover {background: var(--sb-hover);} /* Lighter */
 	::-webkit-scrollbar-thumb:active {cursor: grabbing;}
 
 /* :single-button removes stupid redundant double buttons on default */
@@ -308,7 +322,11 @@ div::-webkit-scrollbar-track {background: transparent;}
 }
 
 /* For elements of the page */
-div::-webkit-scrollbar-button:single-button {background-color: transparent;}
+article::-webkit-scrollbar-button:single-button, 
+figure::-webkit-scrollbar-button:single-button, 
+div::-webkit-scrollbar-button:single-button {
+	background-color: transparent;
+}
 
 	/* Creates a square element that appears as a pseudo triangle */
 	::-webkit-scrollbar-button:single-button:vertical:increment {
@@ -331,14 +349,26 @@ div::-webkit-scrollbar-button:single-button {background-color: transparent;}
 		border-color: transparent var(--sb) transparent transparent;
 	}
 
-	::-webkit-scrollbar-button:vertical:single-button:increment:hover {border-color: var(--sb-thumb) transparent transparent transparent;}
-	::-webkit-scrollbar-button:horizontal:single-button:increment:hover {border-color: transparent transparent transparent var(--sb-thumb);}
-	::-webkit-scrollbar-button:single-button:vertical:decrement:hover {border-color: transparent transparent var(--sb-thumb) transparent;}
-	::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {border-color: transparent var(--sb-thumb) transparent transparent;}
-	
-html, .comms {--sb: rgba(255, 146, 0, 0.7); --sb-thumb: var(--col-text-a);} /* Orange */
-div {--sb: rgba(55, 199, 127, 0.7); --sb-thumb: rgba(55, 199, 127, 1);} 	/* Green */
+	::-webkit-scrollbar-button:vertical:single-button:increment:hover {border-color: var(--sb-hover) transparent transparent transparent;}
+	::-webkit-scrollbar-button:horizontal:single-button:increment:hover {border-color: transparent transparent transparent var(--sb-hover);}
+	::-webkit-scrollbar-button:single-button:vertical:decrement:hover {border-color: transparent transparent var(--sb-hover) transparent;}
+	::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {border-color: transparent var(--sb-hover) transparent transparent;}
 
+html, .examples {--sb: rgba(255, 146, 0, 0.7); --sb-hover: var(--col-text-a);}	/* Orange */
+article {--sb: rgba(55, 199, 127, 0.7); --sb-hover: rgba(55, 199, 127, 1);} 	/* Green */
+
+
+@media (prefers-color-scheme: light) and (prefers-contrast: more) {
+	html, .examples {
+		--sb: var(--col-text-a); 
+		--sb-hover: #B54A04;
+	}
+	
+	article {
+		--sb: rgba(var(--date-r), var(--date-g), var(--date-b), 0.7); 
+		--sb-hover: rgba(var(--date-r), var(--date-g), var(--date-b), 1);
+	}
+}
 
 /* SKIP TO CONTENT */
 
@@ -676,7 +706,12 @@ footer a {font-weight: var(--extrabold);}
 }
 
 .comms img {height: 300px; width: auto;}
-.examples {padding: 10px; margin-bottom: 1rem;}
+.examples {
+	padding-top: 10px; 
+	padding-left: 10px; 
+	padding-right: 10px; 
+	padding-bottom: 0; 
+	margin-bottom: 1rem;}
 	
 	.examples p {
 		display: flex; 
@@ -690,30 +725,26 @@ footer a {font-weight: var(--extrabold);}
 	.examples span {line-height: 1.1;}
 	
 	/* Price */
-	.examples p b {
+	.examples p strong {
 		font-size: 200%; 
 		margin-right: 20px;
 	}
 	
-	#ex-yellow {background-color: rgba(255, 228, 122, var(--ex-opacity));}
-	#ex-orange {background-color: rgba(255, 146, 0, var(--ex-opacity));}
-	#ex-red {background-color: rgba(255, 5, 0, var(--ex-opacity));}
+	figure.comms {margin-bottom: 5px;}
+	#ex-yellow {background-color: rgba(255, 228, 100, var(--ex-opacity));}
+	#ex-orange {background-color: rgba(255, 166, 20, var(--ex-opacity));}
+	#ex-red {background-color: rgba(255, 90, 5, var(--ex-opacity));}
+
 	
 	@media only screen and (max-width: 912px) {
 		.hscrolltip, .vscrolltip {
 			font-size: 80%;
 			text-align: center;
+			padding-bottom: 0.5rem;
 		}
 		
-		.hscrolltip::after {
-		  content: " ← Scroll horizontally → ";
-		}
-		
-		.vscrolltip {margin-bottom: 1rem;}
-		
-		.vscrolltip::before {
-			content: " ↑ Scroll vertically ↓ ";
-		}
+		.hscrolltip::after {content: " ← Scroll horizontally → ";}
+		.vscrolltip::before {content: " ↑ Scroll vertically ↓ ";}
 	}
 
 
@@ -748,14 +779,15 @@ footer a {font-weight: var(--extrabold);}
 	
 	/* Make space for messages before they appear to prevent CLS */
 	/* Adjust for new messages */
-	.guestbook-messages {padding: 25px; min-height: 700px;}
-	#guestbooks___guestbook-messages-container {animation: mess-appear 2.5s ;}
+	.guestbook-messages {padding: 25px; min-height: 900px;}
+	#guestbooks___guestbook-messages-container {animation: messages-appear 2.5s;}
 	
-	@keyframes mess-appear {
-		0% {opacity: 0; }
-		10% {opacity: 0.05; }
-		20% {opacity: 0.10; }
-		100% {opacity: 1; }
+	@keyframes messages-appear {
+		0% {opacity: 0;}
+		15% {opacity: 0;}
+		20% {opacity: 0.05;}
+		25% {opacity: 0.10;}
+		100% {opacity: 1;}
 	}
 	
 	.submit {
