@@ -91,6 +91,7 @@ html {
 			--col-bg-bottom: rgba(var(--red), var(--green), var(--blue), 1);	/* Light green-blue. Part of background gradient */
 			--col-bg-top: #171715;												/* Almost black. Part of background gradient */
 			
+			/* Variables needed to set different opacity while still having all colours in one place */
 			--gradient-1: rgba(var(--red), var(--green), var(--blue), 0);
 			--gradient-2: rgba(var(--red), var(--green), var(--blue), 0.05);
 			--gradient-3: rgba(var(--red), var(--green), var(--blue), 0.1);
@@ -133,6 +134,8 @@ html {
 		
 		@media (prefers-color-scheme: light) and (prefers-contrast: more) {
 			html {
+				/* Variables needed to set different opacity while still having all colours in one place */
+				/* Brighter green */
 				--col-text-date: rgba(var(--date-r), var(--date-g), var(--date-b), 1);
 				--date-r: 43;
 				--date-g: 156;
