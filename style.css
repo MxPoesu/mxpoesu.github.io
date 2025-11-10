@@ -684,7 +684,7 @@ footer a {font-weight: var(--extrabold);}
 	font-weight: var(--bold);
 }
 
-/* Desable anti-aliasing */
+/* Disable anti-aliasing */
 .buttonwall img {
 	image-rendering: optimizeSpeed;             
     image-rendering: -moz-crisp-edges;          /* Firefox */
@@ -963,6 +963,7 @@ figure {
 
 	figure img {width: 100%;}
 
+hr {margin-top: 2rem; margin-bottom: 2rem;}
 
 /* LISTS */
 ul, ol {margin-bottom: 0; text-align: left}
