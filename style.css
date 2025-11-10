@@ -477,12 +477,13 @@ footer a {font-weight: var(--extrabold);}
 
 /* TEXT AND ARTWORK BLOCKS */
 
-.longread {
+.longread, .skip {
 	margin-left: auto;
 	margin-right: auto;
 	width: 60%;
-	text-align: left;
 }
+
+.longread {text-align: left;}
 
 	.blogpic {
 		max-height: auto;
@@ -520,7 +521,7 @@ footer a {font-weight: var(--extrabold);}
 		}
 		
 		.wip-about {margin: 15px;}
-		.longread {width: 90%;}
+		.longread, .skip {width: 90%;}
 	}
 		
 
@@ -709,12 +710,7 @@ footer a {font-weight: var(--extrabold);}
 }
 
 .comms img {height: 300px; width: auto;}
-.examples {
-	padding-top: 10px; 
-	padding-left: 10px; 
-	padding-right: 10px; 
-	padding-bottom: 0; 
-	margin-bottom: 1rem;}
+.examples {padding: 10px; margin-bottom: 1rem;}
 	
 	.examples p {
 		display: flex; 
@@ -964,6 +960,8 @@ figure {
 	figure img {width: 100%;}
 
 hr {margin-top: 2rem; margin-bottom: 2rem;}
+cite {font-style: normal;}
+
 
 /* LISTS */
 ul, ol {margin-bottom: 0; text-align: left}
