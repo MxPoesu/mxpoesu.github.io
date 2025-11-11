@@ -32,6 +32,7 @@ html {
 	animation: gradient 1s;
 	animation-fill-mode: forwards; /* Stops on the last keyframe */
 	
+		/* Variables needed to set different opacity while still having all colours in one place */
 		--gradient-1: rgba(var(--red), var(--green), var(--blue), 0);
 		--gradient-2: rgba(var(--red), var(--green), var(--blue), 0.05);
 		--gradient-3: rgba(var(--red), var(--green), var(--blue), 0.1);
@@ -89,31 +90,8 @@ html {
 			--col-text-a: #FF9200;												/* Orange. Links on hover (unvisited) */
 			--col-text-date: #37C77F;											/* Bright green. Dates */
 			--col-shadow: rgba(0, 0, 0, 0.5);									/* Artwork shadow */
-			--col-bg-bottom: rgba(var(--red), var(--green), var(--blue), 1);	/* Light green-blue. Part of background gradient */
 			--col-bg-top: #171715;												/* Almost black. Part of background gradient */
 			
-			/* Variables needed to set different opacity while still having all colours in one place */
-			--gradient-1: rgba(var(--red), var(--green), var(--blue), 0);
-			--gradient-2: rgba(var(--red), var(--green), var(--blue), 0.05);
-			--gradient-3: rgba(var(--red), var(--green), var(--blue), 0.1);
-			--gradient-4: rgba(var(--red), var(--green), var(--blue), 0.15);
-			--gradient-5: rgba(var(--red), var(--green), var(--blue), 0.2);
-			--gradient-6: rgba(var(--red), var(--green), var(--blue), 0.25);
-			--gradient-7: rgba(var(--red), var(--green), var(--blue), 0.3);
-			--gradient-8: rgba(var(--red), var(--green), var(--blue), 0.35);
-			--gradient-9: rgba(var(--red), var(--green), var(--blue), 0.4);
-			--gradient-10: rgba(var(--red), var(--green), var(--blue), 0.45);
-			--gradient-11: rgba(var(--red), var(--green), var(--blue), 0.5);
-			--gradient-12: rgba(var(--red), var(--green), var(--blue), 0.55);
-			--gradient-13: rgba(var(--red), var(--green), var(--blue), 0.6);
-			--gradient-14: rgba(var(--red), var(--green), var(--blue), 0.65);
-			--gradient-15: rgba(var(--red), var(--green), var(--blue), 0.7);
-			--gradient-16: rgba(var(--red), var(--green), var(--blue), 0.75);
-			--gradient-17: rgba(var(--red), var(--green), var(--blue), 0.8);
-			--gradient-18: rgba(var(--red), var(--green), var(--blue), 0.85);
-			--gradient-19: rgba(var(--red), var(--green), var(--blue), 0.9);
-			--gradient-20: rgba(var(--red), var(--green), var(--blue), 0.95);
-			--gradient-21: rgba(var(--red), var(--green), var(--blue), 1);
 			--red: 39;
 			--green: 89;
 			--blue: 64;
@@ -432,6 +410,7 @@ nav {
 	margin-left: auto; 
 	margin-right: auto; 
 	opacity: 0.8;
+	font-style: normal;
 }
 	
 footer {padding-bottom: 55px;} /* Not margin as it doesn't include body background image */
