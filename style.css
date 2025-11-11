@@ -76,6 +76,7 @@ html {
 		--extrabold: 900;
 } 
 
+	@media(prefers-reduced-motion) {html {scroll-behavior: auto;}}
 
  	@media (prefers-color-scheme: dark) {
 		html {
