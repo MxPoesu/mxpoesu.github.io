@@ -26,7 +26,7 @@ html {
 		--col-orange: rgba(var(--orange-rgb), 1); 								/* Links on hover (unvisited), scrollbar */
 		--orange-rgb: 237, 136, 0;
 		
-		--ex-opacity: 0.3;
+		--ex-opacity: 0.2;
 	
 	background-color: var(--col-bg-top); 
 	animation: gradient 1s;
@@ -95,7 +95,7 @@ html {
 			filter: brightness(90%);
 		}
 		
-		strong {font-weight: var(--extrabold);}
+		strong, b {font-weight: var(--extrabold);}
 		body {background-image: url('images/bg-dark.png');}
 		.divider {background-image: url("images/divider-dark.webp"); }
 	}
