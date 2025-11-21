@@ -23,7 +23,7 @@ html {
 		--col-bg-top: #F2E4DA;												/* Light beige. Part of background gradient */
 		--col-lightgray: #D4D1CF;
 		--col-brown: #472536;
-		--col-orange: rgba(var(--orange-rgb), 1); 								/* Links on hover (unvisited), scrollbar */
+		--col-orange: rgba(var(--orange-rgb), 1); 							/* Links (unvisited), scrollbar */
 		--orange-rgb: 237, 136, 0;
 		
 		--ex-opacity: 0.2;
@@ -938,16 +938,13 @@ ul, ol {margin-bottom: 0; text-align: left}
 
 /* list-style-type: none for navigation */
 ul {
-	list-style-type: none;
+	list-style-type: circle;
+	list-style-position: outside;
 	margin-top: 0;
-	padding-left: 0; 
+	padding-left: 15px;
 }
 
-	.star {
-		list-style-image: url('images/list.svg');
-		list-style-position: outside;
-		padding-left: 17px; 
-	}
+	.mainnav ul {list-style-type: none; padding-left: 0;}
 	
 ol {
 	margin-top: 5px;
@@ -966,7 +963,7 @@ ol {
 /* 3. Under 'Embed code in the <head> of your html' find <link href="[link]". Go to that link */
 /* 4. Copy all CSS and paste into your own CSS file (you can leave out languages you don't need) */
 /* 5. Each subset has a url to a font file. Download each of them and place in your website folder */
-/* 6. Edit CSS to include your urls instead of Googles's */
+/* 6. Edit CSS to include your urls instead of Google's */
 /* 7. Good job! */
 /* This will ensure privacy of your users and speed */
 
