@@ -1,5 +1,3 @@
-/* Make code human-readable so beginners can learn something by inspecting the page! c: */
-
 html {
 	text-align: center;
 	color: var(--col-text-main);
@@ -967,16 +965,6 @@ ol {
 
 
 /* FONTS */ 
-
-/* Don't rely on Google API! Host your fonts! */
-/* 1. Go on Google Fonts */
-/* 2. Choose a font. Click 'Get embed code' */
-/* 3. Under 'Embed code in the <head> of your html' find <link href="[link]". Go to that link */
-/* 4. Copy all CSS and paste into your own CSS file (you can leave out languages you don't need) */
-/* 5. Each subset has a url to a font file. Download each of them and place in your website folder */
-/* 6. Edit CSS to include your urls instead of Google's */
-/* 7. Good job! */
-/* This will ensure privacy of your users and speed */
 
 @font-face {
   font-family: 'Reenie Beanie';
