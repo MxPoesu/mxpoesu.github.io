@@ -219,10 +219,6 @@ html {
 	/* .indexli {text-wrap: balance; display: flex; flex-direction: column;} */
 	/* On desktop shows list items on different rows. On mobile shows them in the same row */
 	/* In case new list items get added to page navigation on index alongside NSFW art link  */
-	
-	.navbr {margin-bottom: 0.8rem;} 
-	/* Space under the first li to separate 'artworks by year' and other list items */
-	/* Removed on mobile */
 
 	@media only screen and (max-width: 768px) {
 		html {font-size: 100%;}
@@ -653,7 +649,7 @@ section.post#index {
 
 .contact img:hover {rotate: 10deg;}
 
-@media only screen and (max-width: 768px) {.contact img {height: 50px; rotate: 0deg;}}
+@media only screen and (max-width: 768px) {.contact img {height: 30px; rotate: 0deg;}}
 @media(prefers-reduced-motion) {.contact img:hover {rotate: 4deg;}}
 
 .contacts, .controls {
