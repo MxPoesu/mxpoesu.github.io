@@ -95,13 +95,15 @@ html {
 		
 		strong, b {font-weight: var(--extrabold);}
 		body {background-image: url('images/bg-dark.png');}
-		.divider-green, .divider-dark {background-image: url("images/divider.png"); }
+		.divider-green, .divider-dark {background-image: url("images/divider.png");}
+		.pfp_deco {background-image: url("images/pfp_deco_light.png");}
 	}
 
 		@media (prefers-color-scheme: light) {
 			body {background-image: url('images/bg-light.png');}
 			.divider-green, .divider-dark {background-image: url("images/divider.png"); }
 			.aside, .divider-green {filter: saturate(15%) brightness(85%);}
+			.pfp_deco {background-image: url("images/pfp_deco_dark.png");}
 		}
 		
 		@media (prefers-color-scheme: light) and (prefers-contrast: more) {
@@ -164,10 +166,11 @@ html {
 .mainnav {
 	width: 98%;
 	max-width: 100%;
-	margin-top: 15px; 
+	margin-top: 0; 
 	margin-bottom: 15px; 
 	margin-left: auto; 
 	margin-right: auto; 
+	padding-top: 15px;
 	opacity: 1;
 	display: grid;
 	grid-template-columns: 16% 42% auto 16%;
@@ -181,13 +184,22 @@ html {
 	}
 	
 	.pfp {
-		height: 90px;
+		max-height: 100%;
 		width: auto;
 		margin-top: 8px;
 		margin-bottom: 4px;
 		margin-left: auto;
 		margin-right: auto;
 		display: block;
+	}
+	
+	.pfp_deco {
+		background-size: 100%;
+		background-repeat: no-repeat;
+		background-position: center bottom;
+		height: 18vh;
+		max-width: 100%;
+		margin-bottom: 0.5rem;
 	}
 	
 	.aside {
@@ -232,9 +244,10 @@ html {
 			display: block;
 			height: auto;
 			margin-bottom: 0; 
+			padding-top: 0; 
 		}
 		
-		.pfp {height: 150px;}
+		.pfp_deco {height: 150px; background-image: none;}
 		.indexnav ul {text-align: center;} /* Centers page navigation, not the menu */
 		.mainnav .longread {margin-top: 10px; margin-bottom: 25px; padding: 25px;}
 		.aside {display: hidden;}
