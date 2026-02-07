@@ -157,7 +157,7 @@ html {
 		}
 
 	* {box-sizing: border-box;}
-	body {margin: 0; min-height: 60rem;} 
+	body {margin: 0; min-height: 100vh;} 
 	/* Min-height for background gradient and image to span across all length of a short page, esp. on square monitors */
 	
 
@@ -173,7 +173,7 @@ html {
 	padding-top: 15px;
 	opacity: 1;
 	display: grid;
-	grid-template-columns: 16% 42% auto 16%;
+	grid-template-columns: 16% 35% auto 16%;
 	gap: 15px;
 }
 	
@@ -185,21 +185,14 @@ html {
 	
 	.pfp {
 		max-height: 100%;
+		height: 25vh;
 		width: auto;
+		max-width: 100%;
 		margin-top: 8px;
 		margin-bottom: 4px;
 		margin-left: auto;
 		margin-right: auto;
 		display: block;
-	}
-	
-	.pfp_deco {
-		background-size: 100%;
-		background-repeat: no-repeat;
-		background-position: center bottom;
-		height: 18vh;
-		max-width: 100%;
-		margin-bottom: 0.5rem;
 	}
 	
 	.aside {
@@ -215,7 +208,10 @@ html {
 		rotate: 180deg;
 	}
 	
-	.divider-green, .divider-dark {
+	#i-right {font-size: 150%;}
+	#i-right a {font-weight: var(--extrabold);}
+	
+	.divider-green {
 		background-repeat: no-repeat;
 		background-size: 100% auto;
 		margin-top: 5px; 
@@ -226,15 +222,6 @@ html {
 		width: 100%; 
 		height: 5.5vw; /* Relative to 1% of the width of the viewport */
 	}
-	
-	.divider-dark {
-		filter: saturate(15%) brightness(0%);
-	}
-
-	/* Unused code */
-	/* .indexli {text-wrap: balance; display: flex; flex-direction: column;} */
-	/* On desktop shows list items on different rows. On mobile shows them in the same row */
-	/* In case new list items get added to page navigation on index alongside NSFW art link  */
 
 	@media only screen and (max-width: 768px) {
 		html {font-size: 100%;}
@@ -247,23 +234,18 @@ html {
 			padding-top: 0; 
 		}
 		
-		.pfp_deco {height: 150px; background-image: none;}
-		.indexnav ul {text-align: center;} /* Centers page navigation, not the menu */
+		#i-right {font-size: 140%;}
+		
+		.pfp {height: 150px;}
 		.mainnav .longread {margin-top: 10px; margin-bottom: 25px; padding: 25px;}
 		.aside {display: hidden;}
 		
-		/* Unused code */
-		/* .indexli {display: block;} */
-		/* On desktop shows list items on different rows. On mobile shows them in the same row */
-		/* In case new list items get added to page navigation on index alongside NSFW art link  */
-		
-		.divider-green, .divider-dark {
+		.divider-green {
 			margin-top: 2px; 
 			margin-bottom: 2px;
 			width: 90%;
+			filter: brightness(130%);
 		}
-		
-		.divider-green {filter: brightness(130%);}
 	}
 	
 	@media only screen and (min-width: 768px) {
@@ -280,164 +262,12 @@ html {
 			margin-right: auto;
 		}
 	}
-
-
-/* SCROLLBAR */
-/* -webkit-scrollbar ONLY works with html TAGS, not classes! */
-
-::-webkit-scrollbar {width: 24px; height: 14px;}
-::-webkit-scrollbar-track {background: var(--col-bg-top);} /* Impossible to set as transparent on html and have a gradient */
-article::-webkit-scrollbar-track, 
-figure::-webkit-scrollbar-track, 
-section::-webkit-scrollbar-track, 
-div::-webkit-scrollbar-track {
-	background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-	background: var(--sb); /* Darker */
-	border-radius: 24px; 
-	cursor: grab;
-} 
-
-	::-webkit-scrollbar-thumb:hover {background: var(--sb-hover);} /* Lighter */
-	::-webkit-scrollbar-thumb:active {cursor: grabbing;}
-
-/* :single-button removes stupid redundant double buttons on default */
-/* For html */
-::-webkit-scrollbar-button:single-button {
-  background-color: var(--col-bg-top);
-  display: block;
-  border-style: solid;
-}
-
-/* For elements of the page */
-article::-webkit-scrollbar-button:single-button, 
-figure::-webkit-scrollbar-button:single-button, 
-section::-webkit-scrollbar-button:single-button, 
-div::-webkit-scrollbar-button:single-button {
-	background-color: transparent;
-}
-
-	/* Creates a square element that appears as a pseudo triangle */
-	::-webkit-scrollbar-button:single-button:vertical:increment {
-	  border-width: 13px 12px 0 12px;
-	  border-color: var(--sb) transparent transparent transparent;
-	}
 	
-	::-webkit-scrollbar-button:single-button:horizontal:increment {
-		border-width: 7px 0 7px 13px;
-		border-color: transparent transparent transparent var(--sb);
-	}
-
-	::-webkit-scrollbar-button:single-button:vertical:decrement {
-	  border-width: 0 12px 13px 12px;
-	  border-color: transparent transparent var(--sb) transparent;
-	}
-	
-	::-webkit-scrollbar-button:single-button:horizontal:decrement {
-		border-width: 7px 13px 7px 0;
-		border-color: transparent var(--sb) transparent transparent;
-	}
-
-	::-webkit-scrollbar-button:vertical:single-button:increment:hover {border-color: var(--sb-hover) transparent transparent transparent;}
-	::-webkit-scrollbar-button:horizontal:single-button:increment:hover {border-color: transparent transparent transparent var(--sb-hover);}
-	::-webkit-scrollbar-button:single-button:vertical:decrement:hover {border-color: transparent transparent var(--sb-hover) transparent;}
-	::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {border-color: transparent var(--sb-hover) transparent transparent;}
-
-html, .examples {--sb: rgba(var(--orange-rgb), 0.7); --sb-hover: var(--col-orange);}	/* Orange. More saturated on hover  */
-article, section {--sb: rgba(55, 199, 127, 0.7); --sb-hover: rgba(55, 199, 127, 1);} 			/* Green. More saturated on hover */
-
-@media (prefers-color-scheme: light) and (prefers-contrast: more) {
-	html, .examples {
-		--sb: var(--col-orange); 
-		--sb-hover: #B54A04;
-	}
-	
-	article {
-		--sb: rgba(var(--date-rgb), 0.7); 
-		--sb-hover: var(--col-text-date);
-	}
-}
-
-
-/* SKIP TO CONTENT */
-
-.skip-link {
-	font-weight: var(--bold);
-	transform: translateY(-100%);
-	font-size: 80%;
-	opacity: 0.7;
-}
-
-.skip-link:focus {transform: translateY(0%);}
-	
-
-/* NAVIGATION */
-
-.back-link {
-	position: sticky;
-	position: -webkit-sticky;
-	background-color: var(--col-button);
-	color: var(--col-arrow);
-	border: 2px outset black;
-	border-radius: 50%;
-	padding-top: 0;
-	padding-bottom: 2px;
-	padding-left: 11px;
-	padding-right: 11px;
-	z-index: 9999;
-	bottom: 10px;
-	left: 95%;
-	font-weight: var(--extrabold);
-	font-size: 2rem;
-	text-decoration: none;
-	transform: translateY(-100%);
-	margin-top: 100vh;
-	transition: 0.3s ease;
-}
-	@media only screen and (max-width: 768px) {
-		.back-link {
-			left: 82%;
-			bottom: 15px;
-			font-size: 2.5rem;
-			padding-bottom: 4px;
-			padding-left: 16px;
-			padding-right: 16px;
-		}
-	}
-	
-	.back-link:focus {transform: translateY(0%);}
-	.back-link:hover, .submit:hover {filter: brightness(150%) saturate(200%) hue-rotate(60deg); text-decoration: none;}
-	.back-link:active {border: 2px inset gray;}
-	.back-link::before {content: " ↑ ";}
-	
-nav {
-	margin-bottom: 5px; 
-	margin-top: 15px; 
-	margin-left: auto; 
-	margin-right: auto; 
-	opacity: 0.8;
-	font-style: normal;
-}
 	
 footer {margin-top: 5vh; padding-bottom: 55px;} /* Not margin as it doesn't include body background image */
 footer .divider-dark {margin-bottom: 5vh;}
 footer p {width: 90%; margin-left: auto; margin-right: auto;}
 footer a {font-weight: var(--extrabold);}
-
-.self-link {
-	color: var(--col-text-date);
-	padding-right: 3px;
-	font-family: var(--font-body);
-	font-size: 1.4rem;
-	font-style: normal;
-	font-weight: var(--bold);
-	user-select: none;
-}
-
-.self-link::after {content: " # "}
-.skip {margin-left: auto; margin-right: auto;}
 
 
 /* APPEAR ANIMATION */
@@ -475,59 +305,20 @@ footer a {font-weight: var(--extrabold);}
 .longread {text-align: left; scroll-behavior: smooth;}
 @media(prefers-reduced-motion) {.longread {scroll-behavior: auto;}}
 
-	.blogpic {
-		max-height: auto;
-		border-radius: 2px;
-		max-width: 100%;
-		height: auto;
-	}
-
-	.flag {
-		height: 1.2em;
-		vertical-align: middle;
-		border: 1.5px solid var(--col-text-main);
-		border-radius: 3px;
-		padding: 0;
-	}
-
-.longread, .artwork-nav {
+.longread {
 	font-size: 1rem;
 	margin-bottom: 25px;
 }
 
-.artwork-nav, .longread {margin-top: 25px;}
+.longread {margin-top: 25px;}
 
 	@media only screen and (max-width: 768px) {
-		.longread, 
-		.art-grid, 
-		.artwork-nav
+		.longread,
 		.mainnav {
 			font-size: 1.3rem;
 		}
-		
-		.wip-about {margin: 15px;}
-		.longread, .skip {width: 90%;}
+		.longread .skip {width: 90%;}
 	}
-
-#posts {position: relative; min-height: 100vh;}
-
-section.post {
-	position: absolute;
-	max-height: 88vh;
-	overflow-y: scroll;
-	display: none;
-	background-color: var(--col-primary);
-	padding-right: 20px;
-}
-
-section.post:target {display: block;}
-
-section.post#index {
-	display: block;
-	align-items: center;
-	overflow-y: hidden;
-}
-
 
 /* BORDER IMAGE */
 
@@ -540,114 +331,6 @@ section.post#index {
 	border-image-outset: 3px;
 	padding: 25px;
 }
-
-
-/* FRONT PAGE ART LIST */
-
-#art {min-height: 300vw;} /* Prevent CLS when pics load slowly */
-
-.art-grid {
-	width: 99%; 
-	margin-bottom: 15px; 
-	margin-left: auto; 
-	margin-right: auto;
-}
-
-	.art-grid img {
-		filter: drop-shadow(1px 4px 2px var(--col-shadow));
-		max-width: 100%; 
-		height: auto;
-	}
-
-	.art-grid h1 {
-		margin-bottom: 10px;
-		margin-left: 30px;
-		font-style: normal;
-		font-weight: var(--regular);
-		text-align: left;
-		padding: 3px;
-	}
-	
-	.pic-justify {
-		column-count: 3; 
-		justify-content: center;
-	}
-	
-	.pic-justify img {transition: 0.3s ease;}
-	.pic-justify img:hover {rotate: 1deg;}
-		
-		@media(prefers-reduced-motion) {.pic-justify img:hover {rotate: 0.2deg;}}
-	
-		@media only screen and (max-width: 768px) {
-			.pic-justify {column-count: 1;}
-			.art-grid {width: 100%;}
-			.pic-justify img:hover {rotate: 0deg;}
-		}
-		@media only screen and (min-width: 1920px) {.pic-justify {column-count: 4;}}
-		@media only screen and (min-width: 2440px) {.pic-justify {column-count: 5;}}
-		
-		/* Unused code */
-		/* Placeholder on slow load */
-		/* Impossible to make space for pictures before they load to prevent CLS, because they lack default width and height */
-		/* Width and height (or aspect ratio) can't be set because they're responsive and different for every image, i.e. the browser calculates it on load */
-		/* Only JS or PHP script can catch the calculated width and height and place it in html of every image to make the space for them beforehand */
-		/* .pic-justify img, figure img, .comms img {background-color: #5d6266; animation: loading 3s infinite;} */
-		/* @keyframes loading { */
-		  /* 0%   { background: #5d6266; } */
-		  /* 20%  { background: #62676B; } */
-		  /* 40%  { background: #666C70; } */
-		  /* 80%  { background: #62676B; } */
-		  /* 100% { background: #5d6266; } */
-		/* } */
-
-
-/* INDIVIUAL ARTWORK PAGES */
-
-.portfolio-grid img, .wip img {
-	height: 100%;
-	max-width: 100%;
-}
-
-	.artwork-nav {
-		padding: 10px; 
-		width: 90%;
-		margin-left: auto; 
-		margin-right: auto;
-	}
-
-	@media only screen and (min-width: 992px) {
-		.portfolio-grid {
-			margin-left: auto; 
-			margin-right: auto; 
-			padding: 0;
-		}
-		
-		.portfolio-grid img {
-			max-height: 100vh;
-			max-width: 95%;
-			filter: drop-shadow(1px 4px 2px var(--col-shadow));
-		}
-		
-		.wip {text-align: center; height: 100vh; overflow-y: scroll;}
-		
-		.wip img {
-			height: auto; 
-			max-width: 450px; 
-		}
-		
-		.wip-about {
-			text-align: left;
-			padding-bottom: 20px;
-			margin: 0;
-		}
-			
-		.portfolio-grid {
-			display: grid;
-			grid-template-columns: auto 30%;
-			align-items: center;
-			padding: 10px;
-		}
-	}	
 
 
 /* BUTTONS */
@@ -676,141 +359,6 @@ section.post#index {
 	margin-right: auto;
 	text-align: center;
 }
-
-.controls {
-	padding-top: 8px;
-	padding-bottom: 8px;
-	margin-top: 15px;
-	margin-bottom: 0;
-	font-size: 0.8rem;
-	display: grid;
-	grid-template-columns: auto auto auto;
-	width: 200px;
-}
-
-.post .controls {
-	margin-bottom: 15px; 
-	margin-top: 0;
-}
-
-.buttonwall p {
-	margin-top: 0.8rem; 
-	font-weight: var(--bold);
-}
-
-/* Disable anti-aliasing */
-.buttonwall img {
-	image-rendering: optimizeSpeed;             
-    image-rendering: -moz-crisp-edges;          /* Firefox */
-    image-rendering: -o-crisp-edges;            /* Opera */
-    image-rendering: -webkit-optimize-contrast; /* Chrome/Safari */
-    image-rendering: pixelated;
-    image-rendering: optimize-contrast;         /* CSS3 */
-}	
-
-
-/* COMMISSIONS AND TOS */
-
-.comms {
-	max-width: 100%;
-	display: grid;
-	gap: 10px;
-	overflow-x: scroll;
-	
-	/* First N is the maximum number of imagesin a row. Leaves a weird empty space after the last image if there's less than N of them in that row */
-	/* Adjust N if more images are added in at least one row */
-	grid-template-columns: repeat(5, 1fr); 
-}
-
-.comms img {height: 300px; width: auto;}
-.examples {padding: 10px; margin-bottom: 1rem; min-height: 315px;}
-	
-	.examples p {
-		display: flex; 
-		margin-top: -10px; /* Keep */
-		align-items: center;
-		text-wrap: balance; /* Keep */
-	}
-	
-	/* Default creates too much space between the lines on mobile */
-	/* Don't set to .examples p, otherwise price text won't fit into the box */
-	.examples span {line-height: 1.1;}
-	
-	/* Price */
-	.examples p strong {
-		font-size: 200%; 
-		margin-right: 20px;
-	}
-	
-	figure.comms {margin-bottom: 5px;}
-	#ex-yellow {background-color: rgba(255, 228, 100, var(--ex-opacity));}
-	#ex-orange {background-color: rgba(255, 166, 20, var(--ex-opacity));}
-	#ex-red {background-color: rgba(255, 90, 5, var(--ex-opacity));}
-
-	
-	@media only screen and (max-width: 912px) {
-		.hscrolltip, .vscrolltip {
-			font-size: 80%;
-			text-align: center;
-			padding-bottom: 0.5rem;
-		}
-		
-		.hscrolltip::after {content: " ← Scroll → ";}
-		.vscrolltip::before {content: " ↑ Scroll ↓ ";}
-	}
-
-
-/* EXPANDABLE ELEMENTS */
-
-/* Details element opens with animation instead of popping out */
-details {
-	max-width: 100%;
-	overflow: hidden; /* Keep this line to prevent an odd blue outline around the element in Safari */
-}
-
-    summary {
-		display: block; 
-		margin-left: 0; 
-		margin-right: 0;
-	}
-		
-    summary::-webkit-details-marker {display: none;}
-
-    .animsummary {
-      position: relative;
-      display: flex;
-      align-items: center;
-      height: 1rem;
-    }
-
-    .animsummary:hover {cursor: pointer;}
-
-    .animsummary::before {
-      content: "▷";
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      margin-right: 0.5rem;
-      transition: rotate 200ms 400ms ease-out; /* Marker rotates back to initial state */
-    }
-
-    .hidden {
-      max-width: 100%;
-      max-height: 0;
-      overflow: hidden;
-      border: 2px solid transparent;
-      transition: max-height 1s ease-out, border 0ms 400ms linear; /* How it closes */
-    }
-
-    details[open] + .hidden {
-      max-height: 1000px; /* Set a max-height value enough to show all the content */
-      transition: max-height 2s ease-out, border 0ms linear; /* How it opens */
-    }
-
-    details[open] .animsummary::before {
-      rotate: 90deg;
-      transition: rotate 200ms ease-out; /* Marker rotates upon opening */
-    }
 
 
 /* LINKS */
@@ -856,7 +404,6 @@ a {
 		text-decoration-color: #FF0000;
 	} 
 	
-	.controls a, .mainnav a, footer a, nav a, .self-link {text-decoration: none;}
 
 
 /* TEXT FORMATTING */
@@ -876,24 +423,7 @@ h1 {
 	text-wrap: balance;
 }
 
-h2, h3, summary {
-	font-family: var(--font-body);
-	font-style: bold;
-	font-weight: var(--extrabold);
-	font-size: 1.2rem;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	text-decoration: none;
-}
-
-h2 {text-align: center;}
-h3 {text-align: left;}
 p {margin-bottom: 0; margin-top: 0;}
-
-time, .readingtime {
-	color: var(--col-text-date);
-	font-family: var(--font-mono);
-}
 
 	@media only screen and (max-width: 768px) {
 		h1 {font-size: 3.5rem;}
@@ -908,44 +438,6 @@ figure {
 } 
 
 	figure img {width: 100%;}
-
-hr {margin-top: 2rem; margin-bottom: 2rem;}
-cite {font-style: normal;}
-
-code {font-family: var(--font-mono);}
-
-.code {
-	border: 2px solid rgba(180, 180, 180, 0.5);
-	border-radius: 3px;
-	background-color: rgba(170, 170, 170, 0.2);
-	padding-left: 0.35rem;
-	padding-right: 0.35rem;
-	margin-left: 0.2rem;
-	margin-right: 0.2rem;
-}
-
-
-/* LISTS */
-ul, ol {margin-bottom: 0; text-align: left}
-
-/* list-style-type: none for navigation */
-ul {
-	list-style-type: circle;
-	list-style-position: outside;
-	margin-top: 0;
-	padding-left: 15px;
-}
-
-	.mainnav ul {list-style-type: none; padding-left: 0;}
-	
-ol {
-	margin-top: 5px;
-	padding-left: 15px; 
-}
-
-	li {line-height: 1.7;}
-	li p {padding-bottom: 1em;}
-
 
 /* FONTS */ 
 
